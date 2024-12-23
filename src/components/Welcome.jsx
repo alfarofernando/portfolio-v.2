@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+
 import profile from "../assets/profile.webp";
 import "./Welcome.css";
 
@@ -10,63 +10,16 @@ export default function Welcome() {
         threshold: 0.1,
     });
 
-    const [particles, setParticles] = useState([]);
 
-    useEffect(() => {
-        // Función para generar pelotitas con tamaños, posiciones y colores aleatorios
-        const generateParticles = () => {
-            const numParticles = 40; // Número de pelotitas a generar
-            const particlesArray = [];
-
-            for (let i = 0; i < numParticles; i++) {
-                const size = Math.floor(Math.random() * 30) + 20; // Tamaño aleatorio
-                const leftPosition = Math.floor(Math.random() * window.innerWidth); // Posición aleatoria en el eje X
-                const topPosition = Math.floor(Math.random() * window.innerHeight); // Posición aleatoria en el eje Y
-                const animationDelay = Math.random() * 5; // Retraso aleatorio en la animación
-
-                particlesArray.push({
-                    size,
-                    left: leftPosition,
-                    top: topPosition,
-                    delay: animationDelay,
-                });
-            }
-
-            setParticles(particlesArray);
-        };
-
-        generateParticles();
-        const interval = setInterval(generateParticles, 100000); // Generar nuevas pelotitas cada 100 segundos
-
-        return () => clearInterval(interval);
-    }, []);
 
     return (
         <>
-            {/* Contenedor de pelotitas detrás de todo el contenido */}
-            <div className="particle-container">
-                {/* Genera las pelotitas con posiciones aleatorias */}
-                {particles.map((particle, index) => (
-                    <div
-                        key={index}
-                        className="particle"
-                        style={{
-                            width: `${particle.size}px`,
-                            height: `${particle.size}px`,
-                            left: `${particle.left}px`,
-                            top: `${particle.top}px`,
-                            animationDelay: `${particle.delay}s`,
-                        }}
-                    ></div>
-                ))}
-            </div>
-
             <motion.div
                 id="Welcome"
                 className="h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0 }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 2 }}
                 ref={ref}
             >
                 <motion.div
@@ -75,7 +28,7 @@ export default function Welcome() {
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: inView ? 1 : 0.5, opacity: inView ? 1 : 0 }}
                     transition={{ duration: 3, ease: "easeInOut" }}
-                    whileHover={{ rotateX: 720, transition: { duration: 3, ease: "easeInOut" } }} // Duración del giro
+                    whileHover={{ rotateZ: 720, rotateX: -720, rotateY: 720, transition: { duration: 3, ease: "easeInOut" } }} // Duración del giro
                 >
                     <img
                         src={profile}
@@ -89,23 +42,23 @@ export default function Welcome() {
                     className="text-center text-gray-800 dark:text-gray-200"
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: inView ? 0 : 50, opacity: inView ? 1 : 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
+                    transition={{ duration: 2, delay: 0.5 }}
                 >
                     <ul className="space-y-4">
-                        <motion.li whileHover={{ scale: 1.4 }} className="transition-transform">
-                            <h1 className="text-4xl font-bold">
+                        <motion.li whileHover={{ scale: 1.2, rotateY: 360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">
+                            <h1 className="text-4xl font-bold p-1">
                                 Hello, I'm{" "}
                                 <span className="text-indigo-600 dark:text-indigo-400">Fernando</span> ✌
                             </h1>
                         </motion.li>
-                        <motion.li whileHover={{ scale: 1.4 }} className="transition-transform">
-                            <h2 className="text-2xl font-semibold">🚀 FullStack Developer</h2>
+                        <motion.li whileHover={{ scale: 1.2, rotateY: -360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">
+                            <h2 className="text-2xl font-semibold p-1">🚀 FullStack Developer</h2>
                         </motion.li>
-                        <motion.li whileHover={{ scale: 1.4 }} className="transition-transform">
-                            <h3 className="text-xl">University Technician in Programming from UTN 🏆</h3>
+                        <motion.li whileHover={{ scale: 1.2, rotateX: 360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">
+                            <h3 className="text-xl p-1">University Technician in Programming from UTN 🏆</h3>
                         </motion.li>
-                        <motion.li whileHover={{ scale: 1.4 }} className="transition-transform">
-                            <h3 className="text-xl">
+                        <motion.li whileHover={{ scale: 1.2, rotateX: -360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">
+                            <h3 className="text-xl p-1">
                                 📮{" "}
                                 <a href="mailto:alfarofernando@live.com" className="text-blue-500 hover:underline">
                                     alfarofernando@live.com
@@ -114,7 +67,7 @@ export default function Welcome() {
                         </motion.li>
                     </ul>
 
-                    <ul className="flex justify-center space-x-10 mt-6 ease ">
+                    <ul className="flex justify-center space-x-16 mt-6 ease ">
                         <motion.li whileHover={{ scale: 1.5, rotate: -1800 }} transition={{
                             duration: 1, // Duración de la animación
                             ease: "easeInOut", // Curva de animación

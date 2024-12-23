@@ -1,0 +1,68 @@
+/* Establece el fondo para las pelotitas */
+.particle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Hace que no interfiera con la interacción del contenido */
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: moveParticles 8s linear infinite, changeColor 2s linear infinite;
+  will-change: transform, background-color;
+}
+
+/* Genera animación de movimiento horizontal y 3D */
+@keyframes moveParticles {
+  0% {
+    transform: translatey(-100%) scale(0.8);
+    opacity: 0.05;
+  }
+  25% {
+    transform: translateX(-100%) scale(1.2);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(0) translateX(0) scale(1.6);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateX(100%) scale(1.2);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translatey(100%) scale(0.8);
+    opacity: 0.05;
+  }
+}
+
+/* Animación de cambio de color */
+@keyframes changeColor {
+  0% {
+    background-color: red;
+  }
+  20% {
+    background-color: orange;
+  }
+  40% {
+    background-color: yellow;
+  }
+  60% {
+    background-color: green;
+  }
+  80% {
+    background-color: blue;
+  }
+  100% {
+    background-color: indigo;
+  }
+}
+
+/* Añade 3D a las pelotitas */
+.particle {
+  transform-style: flat;
+}
