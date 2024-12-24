@@ -10,8 +10,6 @@ export default function Welcome() {
         threshold: 0.1,
     });
 
-
-
     return (
         <>
             <motion.div
