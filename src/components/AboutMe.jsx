@@ -60,7 +60,7 @@ const TimelineItem = ({ title, date, description, align }) => {
                     opacity: inView ? 1 : 0,
                     x: inView ? 0 : align === "left" ? -50 : 50,
                 }}
-                transition={{ duration: 2, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut" }}
                 className={`relative bg-white border border-gray-300 rounded-lg shadow-lg p-6 max-w-sm ${align === "left" ? "mr-8" : "ml-8"
                     }`}
             >

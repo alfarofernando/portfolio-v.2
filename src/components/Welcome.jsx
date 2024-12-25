@@ -17,7 +17,7 @@ export default function Welcome() {
                 className="h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0 }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 1 }}
                 ref={ref}
             >
                 <motion.div
@@ -25,7 +25,7 @@ export default function Welcome() {
                     className="my-8"
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: inView ? 1 : 0.5, opacity: inView ? 1 : 0 }}
-                    transition={{ duration: 3, ease: "easeInOut" }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
                     whileHover={{ rotateZ: 720, rotateX: -720, rotateY: 720, transition: { duration: 3, ease: "easeInOut" } }} // Duración del giro
                 >
                     <img
@@ -40,7 +40,7 @@ export default function Welcome() {
                     className="text-center text-gray-800 dark:text-gray-200"
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: inView ? 0 : 50, opacity: inView ? 1 : 0 }}
-                    transition={{ duration: 2, delay: 0.5 }}
+                    transition={{ duration: 1, delay: 0.5 }}
                 >
                     <ul className="space-y-4">
                         <motion.li whileHover={{ scale: 1.2, rotateY: 360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">

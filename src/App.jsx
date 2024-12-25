@@ -1,67 +1,71 @@
-import './App.css';
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import darkModeTransition from "./assets/darkMode_transition.webp";
 import NavBar from './components/Navbar';
 import Welcome from './components/Welcome';
 import Projects from './components/Projects';
 import AboutMe from './components/AboutMe';
 
 function App() {
-  const [particles, setParticles] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handleDarkModeToggle = () => {
+    setIsTransitioning(true); // Inicia la transición
+    setTimeout(() => {
+      setDarkMode(!darkMode); // Cambia el modo después del retraso
+    }, 1000); // Sincronizado con el GIF
+    setTimeout(() => {
+      setIsTransitioning(false); // Finaliza la transición
+    }, 3000); // Ajustar según la duración del GIF
+  };
 
   useEffect(() => {
-    // Función para generar pelotitas con tamaños, posiciones y colores aleatorios
-    const generateParticles = () => {
-      const numParticles = 200; // Número de pelotitas a generar
-      const particlesArray = [];
-
-      for (let i = 0; i < numParticles; i++) {
-        const size = Math.floor(Math.random() * 3) + 3; // Tamaño aleatorio
-        const leftPosition = Math.floor(Math.random() * window.innerWidth); // Posición aleatoria en el eje X
-        const topPosition = Math.floor(Math.random() * window.innerHeight); // Posición aleatoria en el eje Y
-        const animationDelay = Math.random() * 10; // Retraso aleatorio en la animación
-
-        particlesArray.push({
-          size,
-          left: leftPosition,
-          top: topPosition,
-          delay: animationDelay,
-        });
-      }
-
-      setParticles(particlesArray);
-    };
-
-    generateParticles();
-    const interval = setInterval(generateParticles, 100000); // Generar nuevas pelotitas cada 100 segundos
-
-    return () => clearInterval(interval);
-  }, []);
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   return (
-    <div >
-      {/* Contenedor de pelotitas detrás de todo el contenido */}
-      <div className="particle-container">
-        {/* Genera las pelotitas con posiciones aleatorias */}
-        {particles.map((particle, index) => (
-          <div
-            key={index}
-            className="particle"
-            style={{
-              width: `${particle.size}px`,
-              height: `${particle.size}px`,
-              left: `${particle.left}px`,
-              top: `${particle.top}px`,
-              animationDelay: `${particle.delay}s`,
-            }}
-          ></div>
-        ))}
-      </div>
-      <NavBar />
-      <Welcome />
-      <Projects />
-      <AboutMe />
+    <div>
+      <AnimatePresence>
+        {isTransitioning && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* GIF de transición */}
+            <motion.img
+              src={darkModeTransition}
+              alt="Transition animation"
+              initial={{ scale: darkMode ? 1 : -1 }} // Reversa para darkMode === false
+              animate={{ scale: 1 }}
+              exit={{ scale: darkMode ? -1 : 1 }}
+              transition={{ duration: 1 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Aplicación principal */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isTransitioning ? 0 : 1 }}
+        transition={{ duration: 0.5 }}
+        className={`transition-opacity duration-500 ${isTransitioning ? "opacity-0" : "opacity-100"}`}
+      >
+        <NavBar darkMode={darkMode} setDarkMode={handleDarkModeToggle} />
+        <Welcome />
+        <Projects />
+        <AboutMe />
+      </motion.div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
