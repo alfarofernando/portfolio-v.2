@@ -22,6 +22,12 @@ export default function Projects() {
             screenshots: [
                 { original: pcLlamas, thumbnail: pcLlamas },
                 { original: pcLlamas, thumbnail: pcLlamas },
+                { original: pcLlamas, thumbnail: pcLlamas },
+                { original: pcLlamas, thumbnail: pcLlamas },
+                { original: pcLlamas, thumbnail: pcLlamas },
+                { original: pcLlamas, thumbnail: pcLlamas },
+                { original: pcLlamas, thumbnail: pcLlamas },
+                { original: pcLlamas, thumbnail: pcLlamas },
             ],
         },
         {
@@ -57,10 +63,10 @@ export default function Projects() {
     };
 
     return (
-        <div id="Projects" className=" bg-gray-100 py-16">
+        <div id="Projects" className="bg-gray-100 dark:bg-black py-16">
             <div className="max-w-4xl mx-auto px-4">
                 <motion.h2
-                    className="text-4xl font-bold text-center text-gray-800 mb-12"
+                    className="text-4xl font-bold text-center text-gray-800 dark:text-gray-100 mb-12"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
@@ -79,14 +85,14 @@ export default function Projects() {
                             <motion.div
                                 key={index}
                                 ref={ref}
-                                className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+                                className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden cursor-pointer"
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                                 animate={{
                                     opacity: inView ? 1 : 0,
                                     x: inView ? 0 : index % 2 === 0 ? -100 : 100,
                                 }}
                                 transition={{
-                                    duration: 0.8,
+                                    duration: 1,
                                     ease: "easeOut",
                                     delay: index * 0.2,
                                 }}
@@ -99,19 +105,19 @@ export default function Projects() {
                                     className="w-full h-64 object-cover"
                                 />
                                 <div className="p-4">
-                                    <h3 className="text-2xl font-semibold text-gray-800">
+                                    <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
                                         {project.title}
                                     </h3>
-                                    <p className="text-gray-600 mt-2">
+                                    <p className="text-gray-600 dark:text-gray-300 mt-2">
                                         {project.description}
                                     </p>
                                     <motion.a
                                         href={project.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-block mt-4 text-blue-500 hover:underline"
+                                        className="inline-block mt-4 text-blue-500 dark:text-blue-400 hover:underline"
                                         whileHover={{ scale: 1.1 }}
-                                        transition={{ duration: 0.3 }}
+                                        transition={{ duration: 1 }}
                                     >
                                         View Project
                                     </motion.a>
@@ -129,11 +135,13 @@ export default function Projects() {
                 contentLabel="Project Screenshots"
                 appElement={document.getElementById('root')}  // Asegúrate de que 'root' sea el id de tu contenedor principal
                 ariaHideApp={true}  // Esta propiedad asegura que el fondo no sea interactuable mientras el modal está abierto
-                className="relative max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-lg z-50"  // Haciendo el modal más ancho
+                className="relative max-w-6xl mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50"  // Haciendo el modal más ancho
                 overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"  // Fondo del modal con z-index alto
             >
                 <div className="w-full">
-                    <h3 className="text-2xl font-semibold mb-4">{selectedProject?.title}</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+                    </h3>
+                    {selectedProject?.title}
                     <Gallery
                         items={selectedProject?.screenshots || []}
                         showThumbnails={true}
@@ -147,14 +155,14 @@ export default function Projects() {
                                 <img
                                     src={item.original}
                                     alt="Screenshot"
-                                    className="w-full h-auto object-contain"
+                                    className="w-[40%] h-40%] items-center bg-gray-100 dark:bg-black"
                                 />
                             </Zoom>
                         )}
                     />
                     <button
                         onClick={closeModal}
-                        className="mt-4 px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                        className="mt-4 px-6 py-2 w-full bg-red-500 text-white rounded hover:bg-red-600"
                     >
                         Close
                     </button>

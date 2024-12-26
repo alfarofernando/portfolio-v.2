@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import darkModeTransition from "./assets/darkMode_transition.webp";
+import darkToLight from './assets/darkToLight.webm';
+import lightToDark from './assets/lightToDark.webm';
 import NavBar from './components/Navbar';
 import Welcome from './components/Welcome';
 import Projects from './components/Projects';
@@ -9,15 +10,23 @@ import AboutMe from './components/AboutMe';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState(darkToLight); // Video de transición actual
 
   const handleDarkModeToggle = () => {
     setIsTransitioning(true); // Inicia la transición
+
+    // Cambia el video de transición según el nuevo estado de darkMode
+    setCurrentVideo(darkMode ? darkToLight : lightToDark);
+
+    // Cambia el modo a los 600ms (mitad de la duración del video)
     setTimeout(() => {
-      setDarkMode(!darkMode); // Cambia el modo después del retraso
-    }, 1000); // Sincronizado con el GIF
+      setDarkMode(prevDarkMode => !prevDarkMode); // Alterna el valor de darkMode
+    }, 600);
+
+    // Finaliza la transición después de 1200ms (duración exacta del video)
     setTimeout(() => {
       setIsTransitioning(false); // Finaliza la transición
-    }, 3000); // Ajustar según la duración del GIF
+    }, 1200);
   };
 
   useEffect(() => {
@@ -29,41 +38,46 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div>
+    <div className="relative">
+      {/* Transición del video */}
       <AnimatePresence>
         {isTransitioning && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black"
-            initial={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            initial={{ opacity: 0.5 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            exit={{ opacity: 0.5 }}
+            transition={{ duration: 0.6 }} // Suaviza el desvanecimiento del fondo
           >
-            {/* GIF de transición */}
-            <motion.img
-              src={darkModeTransition}
-              alt="Transition animation"
-              initial={{ scale: darkMode ? 1 : -1 }} // Reversa para darkMode === false
-              animate={{ scale: 1 }}
-              exit={{ scale: darkMode ? -1 : 1 }}
-              transition={{ duration: 1 }}
+            <motion.video
+              src={currentVideo}
+              autoPlay
+              playsInline
+              muted
+              className="h-[100%] w-[100%] object-cover"
+              initial={{ scale: 1, opacity: 0.5 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 1, opacity: 0.5 }}
+              transition={{ duration: 1.2 }} // Duración del video
             />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Aplicación principal */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isTransitioning ? 0 : 1 }}
-        transition={{ duration: 0.5 }}
-        className={`transition-opacity duration-500 ${isTransitioning ? "opacity-0" : "opacity-100"}`}
-      >
-        <NavBar darkMode={darkMode} setDarkMode={handleDarkModeToggle} />
-        <Welcome />
-        <Projects />
-        <AboutMe />
-      </motion.div>
+      {/* Contenido principal */}
+      {!isTransitioning && (
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="relative z-0"
+        >
+          <NavBar darkMode={darkMode} setDarkMode={handleDarkModeToggle} />
+          <Welcome />
+          <Projects />
+          <AboutMe />
+        </motion.div>
+      )}
     </div>
   );
 }

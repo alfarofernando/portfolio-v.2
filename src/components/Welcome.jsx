@@ -14,7 +14,7 @@ export default function Welcome() {
         <>
             <motion.div
                 id="Welcome"
-                className="h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900"
+                className="h-screen flex flex-col items-center justify-center  dark:bg-black bg-gray-100"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ duration: 1 }}
@@ -45,15 +45,15 @@ export default function Welcome() {
                     <ul className="space-y-4">
                         <motion.li whileHover={{ scale: 1.2, rotateY: 360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">
                             <h1 className="text-4xl font-bold p-1">
-                                Hello, I'm{" "}
+                                Hola, Soy{" "}
                                 <span className="text-indigo-600 dark:text-indigo-400">Fernando</span> ✌
                             </h1>
                         </motion.li>
                         <motion.li whileHover={{ scale: 1.2, rotateY: -360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">
-                            <h2 className="text-2xl font-semibold p-1">🚀 FullStack Developer</h2>
+                            <h2 className="text-2xl font-semibold p-1">🚀 Desarrollador Web FullStack </h2>
                         </motion.li>
                         <motion.li whileHover={{ scale: 1.2, rotateX: 360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">
-                            <h3 className="text-xl p-1">University Technician in Programming from UTN 🏆</h3>
+                            <h3 className="text-xl p-1">Tecnico Universitario en Programacion UTN 🏆</h3>
                         </motion.li>
                         <motion.li whileHover={{ scale: 1.2, rotateX: -360, transition: { duration: 2, ease: "linear" } }} className="transition-transform">
                             <h3 className="text-xl p-1">
