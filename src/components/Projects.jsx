@@ -35,6 +35,8 @@ import storepc14 from "../assets/images/StorePC/14.webp";
 import storepc15 from "../assets/images/StorePC/15.webp";
 import storepc16 from "../assets/images/StorePC/16.webp";
 import storepc17 from "../assets/images/StorePC/17.webp";
+import portfolioOldLogo from "../assets/images/PortfolioOld/portfolioOldLogo.webp";
+import portfolioOld from "../assets/images/PortfolioOld/portfolioOld.webp";
 
 import 'react-medium-image-zoom/dist/styles.css';
 
@@ -90,13 +92,12 @@ export default function Projects() {
             ],
         },
         {
-            title: "Project 3",
+            title: "Portafolio V-1",
             description: "A brief description of this project goes here.",
-            image: "path/to/image3.jpg",
+            image: portfolioOldLogo,
             link: "#",
             screenshots: [
-                { original: "path/to/screenshot1.jpg", thumbnail: "path/to/screenshot1-thumb.jpg" },
-                { original: "path/to/screenshot2.jpg", thumbnail: "path/to/screenshot2-thumb.jpg" },
+                { original: portfolioOld, thumbnail: portfolioOld },
             ],
         },
     ];
