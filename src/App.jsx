@@ -38,12 +38,12 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="relative">
+    <div className="relative w-full min-h-screen">
       {/* Transición del video */}
       <AnimatePresence>
         {isTransitioning && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center"
+            className="fixed inset-0 z-50 flex items-center justify-center w-screen h-screen"
             initial={{ opacity: 0.5 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0.5 }}
@@ -54,7 +54,7 @@ function App() {
               autoPlay
               playsInline
               muted
-              className="h-[100%] w-[100%] object-cover"
+              className="h-full w-full object-cover"
               initial={{ scale: 1, opacity: 0.5 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 1, opacity: 0.5 }}
@@ -70,7 +70,7 @@ function App() {
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="relative z-0"
+          className="relative z-0 w-full min-h-screen overflow-hidden"
         >
           <NavBar darkMode={darkMode} setDarkMode={handleDarkModeToggle} />
           <Welcome />

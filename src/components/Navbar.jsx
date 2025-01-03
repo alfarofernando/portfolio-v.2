@@ -15,11 +15,11 @@ export default function NavBar({ darkMode, setDarkMode }) {
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed top-0 left-0 w-full z-30 bg-gray-900 bg-opacity-80 backdrop-blur-lg shadow-lg"
+            className="fixed top-0 w-full justify-items-center justify-center z-30 bg-gray-900 bg-opacity-80 backdrop-blur-lg shadow-lg"
         >
-            <div className="flex mb-1 justify-center max-w-7xl mx-auto p-2 items-center text-2xl">
+            <div className="flex mb-1 ">
                 {/* Menú de navegación */}
-                <ul className="flex space-x-12">
+                <ul className="flex space-x-2 lg:space-x-4 xl:space-x-6 text-xs sm:text-sm md:text-base lg:text-2xl xl:text-3xl 2xl:text-4xl">
                     <li>
                         {/* Botón de Dark Mode */}
                         <motion.button
