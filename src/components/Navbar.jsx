@@ -1,7 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
+import { useLanguage } from "../context/LanguageContext";
+import AnimatedContent from "./AnimatedContent";
 
 export default function NavBar({ darkMode, setDarkMode }) {
+    const { language, changeLanguage, locales } = useLanguage();
+
+    const languageSelector = () => {
+        changeLanguage(language === "es" ? "en" : "es");
+    };
+
     return (
         <motion.nav
             initial={{ opacity: 0, y: -100 }}
@@ -9,21 +17,23 @@ export default function NavBar({ darkMode, setDarkMode }) {
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className="fixed top-0 left-0 w-full z-30 bg-gray-900 bg-opacity-80 backdrop-blur-lg shadow-lg"
         >
-            <div className="flex justify-between max-w-7xl mx-auto p-2 items-center text-2xl">
-                {/* Botón de Dark Mode */}
-                <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setDarkMode(!darkMode)}
-                    className="rounded-full cursor-pointer shadow-md"
-                >
-                    {darkMode ? "🌞 " : "🌙 "}
-                </motion.button>
+            <div className="flex mb-1 justify-center max-w-7xl mx-auto p-2 items-center text-2xl">
                 {/* Menú de navegación */}
                 <ul className="flex space-x-12">
                     <li>
+                        {/* Botón de Dark Mode */}
+                        <motion.button
+                            whileHover={{ scale: 1.2 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => setDarkMode(!darkMode)}
+                            className="rounded-full cursor-pointer hover:shadow-md hover:shadow-yellow-300"
+                        >
+                            {darkMode ? "🌞 " : "🌙 "}
+                        </motion.button>
+                    </li>
+                    <li>
                         <motion.div
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ scale: 1.2 }}
                             transition={{ duration: 0.3 }}
                         >
                             <Link
@@ -32,13 +42,17 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 duration={1500}
                                 className="text-white hover:text-indigo-500 cursor-pointer"
                             >
-                                Welcome
+                                <AnimatedContent keyProp={language}>
+                                    <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full px-2">
+                                        {locales[language].home}
+                                    </span>
+                                </AnimatedContent>
                             </Link>
                         </motion.div>
                     </li>
                     <li>
                         <motion.div
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ scale: 1.2 }}
                             transition={{ duration: 0.3 }}
                         >
                             <Link
@@ -47,13 +61,15 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 duration={1500}
                                 className="text-white hover:text-indigo-500 cursor-pointer"
                             >
-                                Projects
+                                <AnimatedContent keyProp={language}>
+                                    {locales[language].projects}
+                                </AnimatedContent>
                             </Link>
                         </motion.div>
                     </li>
                     <li>
                         <motion.div
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ scale: 1.2 }}
                             transition={{ duration: 0.3 }}
                         >
                             <Link
@@ -62,12 +78,52 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 duration={1500}
                                 className="text-white hover:text-indigo-500 cursor-pointer"
                             >
-                                About Me
+                                <AnimatedContent keyProp={language}>
+                                    {locales[language].aboutMe}
+                                </AnimatedContent>
                             </Link>
                         </motion.div>
                     </li>
+                    <li>
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={languageSelector}
+                            className={`rounded-full cursor-pointer px-4  text-white font-bold shadow-md transition duration-300 
+      ${language === 'es' ? 'hover:bg-yellow-600 shadow-red-500' : 'hover:bg-blue-600 shadow-red-500'}`}
+                        >
+                            <AnimatePresence mode="wait">
+                                {language === 'es' ? (
+                                    <motion.div
+                                        key="es"
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="flex items-center space-x-1"
+                                    >
+                                        <span className="text-red-500">E</span>
+                                        <span className="text-yellow-500">S</span>
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="en"
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="flex items-center space-x-1"
+                                    >
+                                        <span className="text-blue-300">E</span>
+                                        <span className="text-red-500">N</span>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.button>
+
+                    </li>
                 </ul>
             </div>
-        </motion.nav>
+        </motion.nav >
     );
 }

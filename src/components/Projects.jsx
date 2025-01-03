@@ -4,46 +4,95 @@ import Modal from "react-modal";
 import Gallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { useState } from "react";
-import pcLlamas from "../assets/pc-llamas.webp";  // Asegúrate de que la imagen exista en esta ruta
-import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css'; // Importa los estilos de la librería de zoom
+import alfateamLogo from "../assets/images/AlfaTeam/alfateamLogo.webp";
+import alfateam1 from "../assets/images/AlfaTeam/1.webp";
+import alfateam2 from "../assets/images/AlfaTeam/2.webp";
+import alfateam3 from "../assets/images/AlfaTeam/3.webp";
+import alfateam4 from "../assets/images/AlfaTeam/4.webp";
+import alfateam5 from "../assets/images/AlfaTeam/5.webp";
+import alfateam6 from "../assets/images/AlfaTeam/6.webp";
+import alfateam7 from "../assets/images/AlfaTeam/7.webp";
+import alfateam8 from "../assets/images/AlfaTeam/8.webp";
+import alfateam9 from "../assets/images/AlfaTeam/9.webp";
+import alfateam10 from "../assets/images/AlfaTeam/10.webp";
+import alfateam11 from "../assets/images/AlfaTeam/11.webp";
+import alfateam12 from "../assets/images/AlfaTeam/12.webp";
+import storepcLogo from "../assets/images/StorePC/storepcLogo.webp";
+import storepc1 from "../assets/images/StorePC/1.webp";
+import storepc2 from "../assets/images/StorePC/2.webp";
+import storepc3 from "../assets/images/StorePC/3.webp";
+import storepc4 from "../assets/images/StorePC/4.webp";
+import storepc5 from "../assets/images/StorePC/5.webp";
+import storepc6 from "../assets/images/StorePC/6.webp";
+import storepc7 from "../assets/images/StorePC/7.webp";
+import storepc8 from "../assets/images/StorePC/8.webp";
+import storepc9 from "../assets/images/StorePC/9.webp";
+import storepc10 from "../assets/images/StorePC/10.webp";
+import storepc11 from "../assets/images/StorePC/11.webp";
+import storepc12 from "../assets/images/StorePC/12.webp";
+import storepc13 from "../assets/images/StorePC/13.webp";
+import storepc14 from "../assets/images/StorePC/14.webp";
+import storepc15 from "../assets/images/StorePC/15.webp";
+import storepc16 from "../assets/images/StorePC/16.webp";
+import storepc17 from "../assets/images/StorePC/17.webp";
+
+import 'react-medium-image-zoom/dist/styles.css';
 
 export default function Projects() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
 
-    // Lista de proyectos con capturas de pantalla
     const projects = [
         {
-            title: "Project 1",
+            title: "AlfaTeam",
             description: "A brief description of the project goes here.",
-            image: pcLlamas, // Pasando la ruta directamente como cadena
+            image: alfateamLogo,
             link: "#",
             screenshots: [
-                { original: pcLlamas, thumbnail: pcLlamas },
-                { original: pcLlamas, thumbnail: pcLlamas },
-                { original: pcLlamas, thumbnail: pcLlamas },
-                { original: pcLlamas, thumbnail: pcLlamas },
-                { original: pcLlamas, thumbnail: pcLlamas },
-                { original: pcLlamas, thumbnail: pcLlamas },
-                { original: pcLlamas, thumbnail: pcLlamas },
-                { original: pcLlamas, thumbnail: pcLlamas },
+                { original: alfateam1, thumbnail: alfateam1 },
+                { original: alfateam2, thumbnail: alfateam2 },
+                { original: alfateam3, thumbnail: alfateam3 },
+                { original: alfateam4, thumbnail: alfateam4 },
+                { original: alfateam5, thumbnail: alfateam5 },
+                { original: alfateam6, thumbnail: alfateam6 },
+                { original: alfateam7, thumbnail: alfateam7 },
+                { original: alfateam8, thumbnail: alfateam8 },
+                { original: alfateam9, thumbnail: alfateam9 },
+                { original: alfateam10, thumbnail: alfateam10 },
+                { original: alfateam11, thumbnail: alfateam11 },
+                { original: alfateam12, thumbnail: alfateam12 },
             ],
         },
         {
-            title: "Project 2",
+            title: "StorePC",
             description: "Another brief description of the project goes here.",
-            image: "path/to/image2.jpg",  // Asegúrate de que esta ruta sea correcta
+            image: storepcLogo,
             link: "#",
             screenshots: [
-                { original: "path/to/screenshot1.jpg", thumbnail: "path/to/screenshot1-thumb.jpg" },
-                { original: "path/to/screenshot2.jpg", thumbnail: "path/to/screenshot2-thumb.jpg" },
+                { original: storepc1, thumbnail: storepc1 },
+                { original: storepc2, thumbnail: storepc2 },
+                { original: storepc3, thumbnail: storepc3 },
+                { original: storepc4, thumbnail: storepc4 },
+                { original: storepc5, thumbnail: storepc5 },
+                { original: storepc6, thumbnail: storepc6 },
+                { original: storepc7, thumbnail: storepc7 },
+                { original: storepc8, thumbnail: storepc8 },
+                { original: storepc9, thumbnail: storepc9 },
+                { original: storepc10, thumbnail: storepc10 },
+                { original: storepc11, thumbnail: storepc11 },
+                { original: storepc12, thumbnail: storepc12 },
+                { original: storepc13, thumbnail: storepc13 },
+                { original: storepc14, thumbnail: storepc14 },
+                { original: storepc15, thumbnail: storepc15 },
+                { original: storepc16, thumbnail: storepc16 },
+                { original: storepc17, thumbnail: storepc17 },
+
             ],
         },
         {
             title: "Project 3",
             description: "A brief description of this project goes here.",
-            image: "path/to/image3.jpg",  // Asegúrate de que esta ruta sea correcta
+            image: "path/to/image3.jpg",
             link: "#",
             screenshots: [
                 { original: "path/to/screenshot1.jpg", thumbnail: "path/to/screenshot1-thumb.jpg" },
@@ -77,7 +126,7 @@ export default function Projects() {
                 <div className="space-y-8">
                     {projects.map((project, index) => {
                         const { ref, inView } = useInView({
-                            triggerOnce: false, // Cambié esto a false para que la animación se repita cada vez que el proyecto entra en vista
+                            triggerOnce: false,
                             threshold: 0.1,
                         });
 
@@ -111,16 +160,6 @@ export default function Projects() {
                                     <p className="text-gray-600 dark:text-gray-300 mt-2">
                                         {project.description}
                                     </p>
-                                    <motion.a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-block mt-4 text-blue-500 dark:text-blue-400 hover:underline"
-                                        whileHover={{ scale: 1.1 }}
-                                        transition={{ duration: 1 }}
-                                    >
-                                        View Project
-                                    </motion.a>
                                 </div>
                             </motion.div>
                         );
@@ -133,33 +172,30 @@ export default function Projects() {
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
                 contentLabel="Project Screenshots"
-                appElement={document.getElementById('root')}  // Asegúrate de que 'root' sea el id de tu contenedor principal
-                ariaHideApp={true}  // Esta propiedad asegura que el fondo no sea interactuable mientras el modal está abierto
-                className="relative max-w-6xl mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50"  // Haciendo el modal más ancho
-                overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"  // Fondo del modal con z-index alto
+                appElement={document.getElementById('root')}
+                ariaHideApp={true}
+                className="relative w-[90%] h-[90%] bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden"
+                overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
             >
-                <div className="w-full">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
-                    </h3>
-                    {selectedProject?.title}
-                    <Gallery
-                        items={selectedProject?.screenshots || []}
-                        showThumbnails={true}
-                        thumbnailHeight={80}
-                        thumbnailWidth={120}
-                        showFullscreenButton={false}
-                        showPlayButton={false}
-                        showNav={true}
-                        renderItem={(item) => (
-                            <Zoom>
-                                <img
-                                    src={item.original}
-                                    alt="Screenshot"
-                                    className="w-[40%] h-40%] items-center bg-gray-100 dark:bg-black"
-                                />
-                            </Zoom>
-                        )}
-                    />
+                <div className="w-full h-full flex flex-col items-center justify-between">
+                    <div className="flex-grow w-full overflow-y-auto">
+                        <Gallery
+                            items={selectedProject?.screenshots || []}
+                            showThumbnails={false}
+                            showFullscreenButton={false}
+                            showPlayButton={false}
+                            showNav={true}
+                            renderItem={(item) => (
+                                <div className="w-full h-full flex justify-center items-center overflow-auto">
+                                    <img
+                                        src={item.original}
+                                        alt="Screenshot"
+                                        className="w-full h-auto object-cover bg-gray-100 dark:bg-black"
+                                    />
+                                </div>
+                            )}
+                        />
+                    </div>
                     <button
                         onClick={closeModal}
                         className="mt-4 px-6 py-2 w-full bg-red-500 text-white rounded hover:bg-red-600"
@@ -168,6 +204,9 @@ export default function Projects() {
                     </button>
                 </div>
             </Modal>
+
+
+
         </div>
     );
 }
