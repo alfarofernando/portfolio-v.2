@@ -19,7 +19,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
         >
             <div className="flex mb-1 ">
                 {/* Menú de navegación */}
-                <ul className="flex space-x-2 lg:space-x-4 xl:space-x-6 text-xs sm:text-sm md:text-base lg:text-2xl xl:text-3xl 2xl:text-4xl">
+                <ul className="flex space-x-3 md:space-x-6 lg:space-x-9 xl:space-x-12 py-1 text-sm md:text-lg lg:text-2xl xl:text-4xl">
                     <li>
                         {/* Botón de Dark Mode */}
                         <motion.button
@@ -43,7 +43,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 className="text-white hover:text-indigo-500 cursor-pointer"
                             >
                                 <AnimatedContent keyProp={language}>
-                                    <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full px-2">
+                                    <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full">
                                         {locales[language].home}
                                     </span>
                                 </AnimatedContent>
@@ -89,7 +89,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={languageSelector}
-                            className={`rounded-full cursor-pointer px-4  text-white font-bold shadow-md transition duration-300 
+                            className={`rounded-full cursor-pointer px-1 md:px-2 lg:px-3 xl:px-4  text-white font-bold shadow-md transition duration-300 
       ${language === 'es' ? 'hover:bg-yellow-600 shadow-red-500' : 'hover:bg-blue-600 shadow-red-500'}`}
                         >
                             <AnimatePresence mode="wait">

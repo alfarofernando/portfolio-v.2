@@ -10,6 +10,12 @@ export const locales = {
     home3: "Tecnico Universitario en Programacion",
     //projects
     projectTitle: "Mis Proyectos",
+    project1Description:
+      "Proyecto final de la tecnicatura, realizada en solitario utilizando PHP para el backend, MySql para la base de datos, React para el frontend",
+    project2Description:
+      "Proyecto integrador realizado para el curso de desarrollo web fullstack MERN dictado por UTN",
+    project3Description:
+      "Primer portafolio personal realizado en HTML, CSS, BOOTSTRAP , JavaScript",
     //aboutMe
     aboutMeTitle: "Sobre mi",
     cardOneTitle: "Inicio de estudios en UTN",
@@ -74,6 +80,13 @@ export const locales = {
     home3: "University Technician in Programming",
     //projects
     projectTitle: "My Projects",
+
+    project1Description:
+      "Final project for my technical degree, carried out alone using PHP for the backend, MySql for the database and React for the frontend",
+    project2Description:
+      "Integrative project carried out for the MERN fullstack web development course taught by UTN",
+    project3Description:
+      "First personal portfolio made in HTML, CSS, BOOTSTRAP, JavaScript",
     //aboutMe
     aboutMeTitle: "About Me",
     cardOneTitle: "Start of studies at UTN",

@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import Gallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 import alfateamLogo from "../assets/images/AlfaTeam/alfateamLogo.webp";
 import alfateam1 from "../assets/images/AlfaTeam/1.webp";
 import alfateam2 from "../assets/images/AlfaTeam/2.webp";
@@ -43,11 +44,12 @@ import 'react-medium-image-zoom/dist/styles.css';
 export default function Projects() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
+    const { language, locales } = useLanguage();
 
     const projects = [
         {
             title: "AlfaTeam",
-            description: "A brief description of the project goes here.",
+            description: locales[language].project1Description,
             image: alfateamLogo,
             link: "#",
             screenshots: [
@@ -67,7 +69,7 @@ export default function Projects() {
         },
         {
             title: "StorePC",
-            description: "Another brief description of the project goes here.",
+            description: locales[language].project2Description,
             image: storepcLogo,
             link: "#",
             screenshots: [
@@ -93,7 +95,7 @@ export default function Projects() {
         },
         {
             title: "Portafolio V-1",
-            description: "A brief description of this project goes here.",
+            description: locales[language].project3Description,
             image: portfolioOldLogo,
             link: "#",
             screenshots: [
@@ -121,7 +123,7 @@ export default function Projects() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
-                    My Projects
+                    {locales[language].projectTitle}
                 </motion.h2>
 
                 <div className="space-y-8">
