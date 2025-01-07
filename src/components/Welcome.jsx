@@ -90,9 +90,9 @@ export default function Welcome() {
                             >
                                 <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl p-2 dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full">
                                     <a
-                                        href="public\cv-AlfaroFernando-01-2025.pdf" // Cambia esta ruta por la ubicación real de tu PDF
-                                        target="_blank" // Abre en una nueva pestaña
-                                        rel="noopener noreferrer" // Mejora la seguridad
+                                        href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="text-blue-500"
                                     >
                                         <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full px-2">

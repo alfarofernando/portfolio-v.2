@@ -12,9 +12,9 @@ export const locales = {
     //projects
     projectTitle: "Mis Proyectos",
     project1Description:
-      "Proyecto final de la tecnicatura, realizada en solitario utilizando PHP para el backend, MySql para la base de datos, React para el frontend",
+      "Proyecto final de la tecnicatura, realizado utilizando PHP para el backend, MySql para la base de datos, React para el frontend",
     project2Description:
-      "Proyecto integrador realizado para el curso de desarrollo web fullstack MERN dictado por UTN",
+      "Lider de proyecto integrador realizado para el curso de desarrollo web fullstack MERN dictado por UTN",
     project3Description:
       "Primer portafolio personal realizado en HTML, CSS, BOOTSTRAP , JavaScript",
     //aboutMe
@@ -84,9 +84,9 @@ export const locales = {
     projectTitle: "My Projects",
 
     project1Description:
-      "Final project for my technical degree, carried out alone using PHP for the backend, MySql for the database and React for the frontend",
+      "Final project for my technical degree, carried out using PHP for the backend, MySql for the database and React for the frontend",
     project2Description:
-      "Integrative project carried out for the MERN fullstack web development course taught by UTN",
+      "Leader of integrative project carried out for the MERN fullstack web development course taught by UTN",
     project3Description:
       "First personal portfolio made in HTML, CSS, BOOTSTRAP, JavaScript",
     //aboutMe
