@@ -24,7 +24,7 @@ export default function Footer() {
 
                 {/* CV */}
                 <motion.a
-                    href="/public/cv-AlfaroFernando-01-2025.pdf"
+                    href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
@@ -42,7 +42,7 @@ export default function Footer() {
 
                 {/* LinkedIn */}
                 <motion.a
-                    href="https://www.linkedin.com/in/fernandoalfaro-132973246"
+                    href="https://www.linkedin.com/in/fernando-alfaro-132973246/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
