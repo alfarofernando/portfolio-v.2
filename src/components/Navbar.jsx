@@ -43,9 +43,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 className="text-white hover:text-indigo-500 cursor-pointer"
                             >
                                 <AnimatedContent keyProp={language}>
-                                    <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full">
-                                        {locales[language].home}
-                                    </span>
+                                    {locales[language].home}
                                 </AnimatedContent>
                             </Link>
                         </motion.div>

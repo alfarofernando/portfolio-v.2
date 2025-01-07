@@ -93,7 +93,7 @@ export default function Welcome() {
                                         href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-blue-500"
+                                        className="text-blue-500 hover:underline"
                                     >
                                         <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full px-2">
                                             {locales[language].cv} 📄
