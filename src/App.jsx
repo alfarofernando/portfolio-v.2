@@ -6,6 +6,7 @@ import NavBar from './components/Navbar';
 import Welcome from './components/Welcome';
 import Projects from './components/Projects';
 import AboutMe from './components/AboutMe';
+import Footer from './components/Footer';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -76,6 +77,7 @@ function App() {
           <Welcome />
           <Projects />
           <AboutMe />
+          <Footer />
         </motion.div>
       )}
     </div>

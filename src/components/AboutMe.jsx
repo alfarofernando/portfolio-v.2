@@ -90,9 +90,9 @@ const AboutMe = () => {
 
                 {/* Elementos del timeline */}
                 {items.map((item, index) => (
-                    <AnimatedContent keyProp={language}>
+                    <AnimatedContent key={`animated-${index}`} keyProp={language}>
                         <TimelineItem
-                            key={index}
+                            key={`timeline-${index}`}
                             title={item.title}
                             date={item.date}
                             description={item.description}
@@ -111,8 +111,10 @@ const TimelineItem = ({ title, date, description, align }) => {
     return (
         <div
             ref={ref}
-            className={`flex w-full hover:scale-125 transition duration-1000 ease ${align === "left" ? "justify-start" : "justify-end"
-                }`}
+            className={`flex w-full transition duration-1000 ease ${align === "left"
+                ? "justify-start sm:justify-center md:justify-start"
+                : "justify-end sm:justify-center md:justify-end"
+                } hover:scale-125`}
         >
             <motion.div
                 initial={{ opacity: 0, x: align === "left" ? -50 : 50 }}
@@ -121,7 +123,7 @@ const TimelineItem = ({ title, date, description, align }) => {
                     x: inView ? 0 : align === "left" ? -50 : 50,
                 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className={`relative hover:shadow-2xl hover:shadow-gray-500 dark:hover:shadow-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg p-6 max-w-sm ${align === "left" ? "mr-8" : "ml-8"
+                className={`relative hover:shadow-2xl hover:shadow-gray-500 dark:hover:shadow-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg p-6 max-w-sm mx-auto ${align === "left" ? "md:mr-8" : "md:ml-8"
                     }`}
             >
                 <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100">
@@ -131,12 +133,13 @@ const TimelineItem = ({ title, date, description, align }) => {
                 <p className="mt-2 text-gray-700 dark:text-gray-300">{description}</p>
                 {/* Conector a la línea central */}
                 <div
-                    className={`absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gray-300 dark:bg-gray-600 rounded-full ${align === "left" ? "-right-2" : "-left-2"
+                    className={`absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gray-300 dark:bg-gray-600 rounded-full ${align === "left" ? "-left-2" : "-right-2"
                         }`}
                 ></div>
             </motion.div>
         </div>
     );
+
 };
 
 export default AboutMe;
