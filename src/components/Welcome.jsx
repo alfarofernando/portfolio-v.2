@@ -129,7 +129,7 @@ export default function Welcome() {
                         ease: "easeInOut",
                     }} className="transition-transform md:fixed md:top-40 md:left-40 lg:left-70 xl:left-90">
                         <a
-                            href="www.linkedin.com/in/fernandoalfaro-132973246"
+                            href="https://www.linkedin.com/in/fernando-alfaro-132973246/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
