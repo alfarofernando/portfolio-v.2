@@ -67,40 +67,45 @@ export default function Welcome() {
                             </motion.li>
                             {/* watsapp */}
                             <motion.li
-                                whileHover={{ scale: 1.3, rotateX: -360, transition: { duration: 1.5, ease: "easeInOut" } }}
-                                className="transition-transform"
+                                whileHover={{ scale: 1.1, transition: { duration: 0.5, ease: "easeInOut" } }}
+                                className="relative group transition-transform"
                             >
-                                <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl p-2 dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full">
-                                    <a
-                                        href="https://wa.me/5491152606455?text=¡Hola!%20Estoy%20interesado%20en%20tu%20perfil%20y%20me%20gustaría%20contactarte."
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-green-500 hover:underline"
-                                    >
-                                        <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full px-2">
-                                            📱 Contactar por WhatsApp
-                                        </span>
-                                    </a>
-                                </h3>
+                                <a
+                                    href="https://wa.me/5491152606455?text=¡Hola!%20Estoy%20interesado%20en%20tu%20perfil%20y%20me%20gustaría%20contactarte."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="relative inline-block rounded-full text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-3 font-semibold 
+                   text-white bg-green-500 shadow-md hover:bg-green-600 transition-all duration-500 overflow-hidden"
+                                >
+                                    <span
+                                        className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-25 
+                       transition-opacity duration-500"
+                                    ></span>
+                                    <span className="relative z-10">📱 {locales[language].whatsapp}</span>
+                                </a>
                             </motion.li>
-                            {/* cv */}
+
+                            {/* CV */}
                             <motion.li
-                                whileHover={{ scale: 1.3, transition: { duration: 1.5, ease: "easeInOut" } }}
-                                className="transition-transform"
+                                whileHover={{ scale: 1.1, transition: { duration: 0.5, ease: "easeInOut" } }}
+                                className="relative group transition-transform"
                             >
-                                <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl p-2 dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full">
-                                    <a
-                                        href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-blue-500 hover:underline"
-                                    >
-                                        <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full px-2">
-                                            {locales[language].cv} 📄
-                                        </span>
-                                    </a>
-                                </h3>
+                                <a
+                                    href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="relative inline-block rounded-full text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-3 font-semibold 
+                   text-white bg-blue-500 shadow-md hover:bg-blue-600 transition-all duration-500 overflow-hidden"
+                                >
+                                    <span
+                                        className="absolute inset-0 rounded-full bg-blue-700 opacity-0 group-hover:opacity-25 
+                       transition-opacity duration-500"
+                                    ></span>
+                                    <span className="relative z-10"> {locales[language].cv} 📄</span>
+                                </a>
                             </motion.li>
+
+
 
                         </AnimatedContent>
                     </ul>

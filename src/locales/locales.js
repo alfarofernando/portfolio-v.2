@@ -8,6 +8,7 @@ export const locales = {
     home1: "Hola, Soy",
     home2: "Desarrollador Web FullStack",
     home3: "Tecnico Universitario en Programacion",
+    whatsapp: "Contactar por WhatsApp",
     cv: "Ver Curriculum",
     //projects
     projectTitle: "Mis Proyectos",
@@ -79,6 +80,7 @@ export const locales = {
     home1: "Hello, I'm",
     home2: "FullStack Web Developer",
     home3: "University Technician in Programming",
+    whatsapp: "Contact on WhatsApp",
     cv: "See Curriculum",
     //projects
     projectTitle: "My Projects",

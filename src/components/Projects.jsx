@@ -137,7 +137,7 @@ export default function Projects() {
                             <motion.div
                                 key={index}
                                 ref={ref}
-                                className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden cursor-pointer"
+                                className="bg-white dark:bg-gray-900 rounded-lg shadow-md  cursor-pointer"
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                                 animate={{
                                     opacity: inView ? 1 : 0,
@@ -154,7 +154,7 @@ export default function Projects() {
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-64 object-cover"
+                                    className="w-full h-64 object-fill"
                                 />
                                 <div className="p-4">
                                     <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
