@@ -34,46 +34,6 @@ const AboutMe = () => {
             date: locales[language].cardFiveDate,
             description: locales[language].cardFiveDescription,
         },
-        {
-            title: locales[language].cardSixTitle,
-            date: locales[language].cardSixDate,
-            description: locales[language].cardSixDescription,
-        },
-        {
-            title: locales[language].cardSevenTitle,
-            date: locales[language].cardSevenDate,
-            description: locales[language].cardSevenDescription,
-        },
-        {
-            title: locales[language].cardEightTitle,
-            date: locales[language].cardEightDate,
-            description: locales[language].cardEightDescription,
-        },
-        {
-            title: locales[language].cardNineTitle,
-            date: locales[language].cardNineDate,
-            description: locales[language].cardNineDescription,
-        },
-        {
-            title: locales[language].cardTenTitle,
-            date: locales[language].cardTenDate,
-            description: locales[language].cardTenDescription,
-        },
-        {
-            title: locales[language].cardElevenTitle,
-            date: locales[language].cardElevenDate,
-            description: locales[language].cardElevenDescription,
-        },
-        {
-            title: locales[language].cardTwelveTitle,
-            date: locales[language].cardTwelveDate,
-            description: locales[language].cardTwelveDescription,
-        },
-        {
-            title: locales[language].cardThirteenTitle,
-            date: locales[language].cardThirteenDate,
-            description: locales[language].cardThirteenDescription,
-        },
     ];
 
     return (
@@ -94,7 +54,6 @@ const AboutMe = () => {
                         <TimelineItem
                             key={`timeline-${index}`}
                             title={item.title}
-                            date={item.date}
                             description={item.description}
                             align={index % 2 === 0 ? "left" : "right"}
                         />

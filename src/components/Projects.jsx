@@ -129,12 +129,17 @@ export default function Projects() {
                     </AnimatedContent>
                 </motion.h2>
 
-                <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {projects.map((project, index) => {
                         const { ref, inView } = useInView({
                             triggerOnce: false,
                             threshold: 0.1,
                         });
+
+                        const openProjectModal = () => {
+                            setSelectedProject(project);
+                            setIsModalOpen(true);
+                        };
 
                         return (
                             <motion.div
@@ -156,82 +161,76 @@ export default function Projects() {
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-64 object-fill"
+                                    className="w-full h-48 object-cover"
                                 />
 
                                 <div className="p-4">
-                                    <p className="text-xl text-gray-800 dark:text-gray-100">
-                                        <AnimatedContent keyProp={language}>
-                                            {project.description}
-                                        </AnimatedContent>
+                                    <p className="text-sm md:text-base text-gray-800 dark:text-gray-100">
+                                        {project.title}
                                     </p>
                                 </div>
-                                {/* Efecto hover con botones */}
-                                <motion.div
-                                    className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4"
-                                    initial={{ x: "100%" }}
-                                    animate={{ x: inView ? "0%" : "100%" }}
-                                    transition={{ duration: 1, ease: "easeInOut" }}
+
+                                {/* Botón para abrir descripción */}
+                                <button
+                                    className="mt-2 bg-blue-600 text-white px-3 py-2 text-sm rounded-md hover:bg-blue-700 transition w-full"
+                                    onClick={openProjectModal}
                                 >
-                                    <button
-                                        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
-                                        onClick={() => handleProjectClick(project)}
-                                    >
-                                        {locales[language].projectScreenshot}
-                                    </button>
-                                    <button
-                                        className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
-                                        onClick={() => window.open(project.link, "_blank")}
-                                    >
-                                        {locales[language].projectRepository}
-                                    </button>
-                                </motion.div>
+                                    {locales[language].viewDetails}
+                                </button>
                             </motion.div>
                         );
                     })}
                 </div>
-            </div>
 
-            {/* Modal para la galería */}
-            <Modal
-                isOpen={isModalOpen}
-                onRequestClose={closeModal}
-                contentLabel="Project Screenshots"
-                appElement={document.getElementById('root')}
-                ariaHideApp={true}
-                className="relative w-[90%] h-[90%] bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden"
-                overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
-            >
-                <div className="w-full h-full flex flex-col items-center justify-between">
-                    <div className="flex-grow w-full overflow-y-auto">
-                        <Gallery
-                            items={selectedProject?.screenshots || []}
-                            showThumbnails={false}
-                            showFullscreenButton={false}
-                            showPlayButton={false}
-                            showNav={true}
-                            renderItem={(item) => (
-                                <div className="w-full h-full flex justify-center items-center overflow-auto">
-                                    <img
-                                        src={item.original}
-                                        alt="Screenshot"
-                                        className="w-full h-auto object-cover bg-gray-100 dark:bg-black"
-                                    />
-                                </div>
-                            )}
-                        />
+                {/* Modal con descripción y botones */}
+                <Modal
+                    isOpen={isModalOpen}
+                    onRequestClose={closeModal}
+                    contentLabel="Project Details"
+                    appElement={document.getElementById("root")}
+                    ariaHideApp={true}
+                    className="relative w-[90%] h-[90%] bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden"
+                    overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
+                >
+                    <div className="flex flex-col h-full">
+                        {/* Descripción del proyecto */}
+                        <div className="flex-grow overflow-auto">
+                            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+                                {selectedProject?.title}
+                            </h2>
+                            <p className="text-gray-700 dark:text-gray-300 mb-6">
+                                {selectedProject?.description}
+                            </p>
+                        </div>
+
+                        {/* Botones debajo de la descripción */}
+                        <div className="mt-4 flex flex-col gap-4">
+                            <button
+                                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+                                onClick={() => {
+                                    // Lógica para abrir galería
+                                }}
+                            >
+                                {locales[language].projectScreenshot}
+                            </button>
+                            <button
+                                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
+                                onClick={() => window.open(selectedProject?.link, "_blank")}
+                            >
+                                {locales[language].projectRepository}
+                            </button>
+                            <button
+                                onClick={closeModal}
+                                className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+                            >
+                                {locales[language].closeModal}
+                            </button>
+                        </div>
                     </div>
-                    <button
-                        onClick={closeModal}
-                        className="mt-4 px-6 py-2 w-full bg-red-500 text-white rounded hover:bg-red-600"
-                    >
-                        Close
-                    </button>
-                </div>
-            </Modal>
-
-
-
+                </Modal>
+            </div >
         </div >
     );
-}
+};
+
+
