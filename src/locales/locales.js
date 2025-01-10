@@ -13,11 +13,13 @@ export const locales = {
     //projects
     projectTitle: "Mis Proyectos",
     project1Description:
-      "Proyecto final de la tecnicatura, realizado utilizando PHP para el backend, MySql para la base de datos, React para el frontend",
+      "Desempeñe el rol de desarrollador web fullstack para la creacion de un sitio de venta y vista asincronica de cursos de programacion. Para este proyecto, utilice el stack React-PHPMySQL",
     project2Description:
-      "Lider de proyecto integrador realizado para el curso de desarrollo web fullstack MERN dictado por UTN",
+      "Desempeñe el rol de lider de proyecto teniendo un equipo de 3 desarrolladores a cargo. Me encargue tambien como desarrollador de las tareas tecnicas mas complejas como de la creacion del backend completo y logica del frontend para consumicion de apis. utilizando para este proyecto el stack MongoDB Atlas, Express, React, Node",
     project3Description:
       "Primer portafolio personal realizado en HTML, CSS, BOOTSTRAP , JavaScript",
+    projectScreenshot: "Ver Imagenes",
+    projectRepository: "Ver Repositorio",
     //aboutMe
     aboutMeTitle: "Sobre mi",
     cardOneTitle: "Inicio de estudios en UTN",
@@ -84,13 +86,14 @@ export const locales = {
     cv: "See Curriculum",
     //projects
     projectTitle: "My Projects",
-
+    projectScreenshot: "To Project",
+    projectRepository: "To Repository",
     project1Description:
-      "Final project for my technical degree, carried out using PHP for the backend, MySql for the database and React for the frontend",
+      "I worked as a full-stack web developer to create a site for selling and asynchronously viewing programming courses. For this project, I used the React-PHP-MySQL stack.",
     project2Description:
-      "Leader of integrative project carried out for the MERN fullstack web development course taught by UTN",
+      "I served as a project leader managing a team of 3 developers. I was also responsible for the most complex technical tasks, including creating the complete backend and frontend logic for API consumption, using the MongoDB Atlas, Express, React, and Node stack.",
     project3Description:
-      "First personal portfolio made in HTML, CSS, BOOTSTRAP, JavaScript",
+      "My first personal portfolio created using HTML, CSS, BOOTSTRAP, and JavaScript.",
     //aboutMe
     aboutMeTitle: "About Me",
     cardOneTitle: "Start of studies at UTN",

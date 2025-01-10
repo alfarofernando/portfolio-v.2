@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import AnimatedContent from "./AnimatedContent";
 import Modal from "react-modal";
 import Gallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -51,7 +52,7 @@ export default function Projects() {
             title: "AlfaTeam",
             description: locales[language].project1Description,
             image: alfateamLogo,
-            link: "#",
+            link: "https://github.com/alfarofernando/Alfa_Team_Frontend",
             screenshots: [
                 { original: alfateam1, thumbnail: alfateam1 },
                 { original: alfateam2, thumbnail: alfateam2 },
@@ -71,7 +72,7 @@ export default function Projects() {
             title: "StorePC",
             description: locales[language].project2Description,
             image: storepcLogo,
-            link: "#",
+            link: "https://github.com/zfranco21/storepc-frontend",
             screenshots: [
                 { original: storepc1, thumbnail: storepc1 },
                 { original: storepc2, thumbnail: storepc2 },
@@ -97,7 +98,7 @@ export default function Projects() {
             title: "Portafolio V-1",
             description: locales[language].project3Description,
             image: portfolioOldLogo,
-            link: "#",
+            link: "https://github.com/alfarofernando/portfolio-v.1",
             screenshots: [
                 { original: portfolioOld, thumbnail: portfolioOld },
             ],
@@ -123,7 +124,9 @@ export default function Projects() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
-                    {locales[language].projectTitle}
+                    <AnimatedContent keyProp={language}>
+                        {locales[language].projectTitle}
+                    </AnimatedContent>
                 </motion.h2>
 
                 <div className="space-y-8">
@@ -137,7 +140,7 @@ export default function Projects() {
                             <motion.div
                                 key={index}
                                 ref={ref}
-                                className="bg-white dark:bg-gray-900 rounded-lg shadow-md  cursor-pointer"
+                                className="relative group bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden cursor-pointer"
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                                 animate={{
                                     opacity: inView ? 1 : 0,
@@ -145,25 +148,44 @@ export default function Projects() {
                                 }}
                                 transition={{
                                     duration: 1,
-                                    ease: "easeOut",
+                                    ease: "easeInOut",
                                     delay: index * 0.2,
                                 }}
-                                whileHover={{ scale: 1.05 }}
-                                onClick={() => handleProjectClick(project)}
                             >
+                                {/* Imagen del Proyecto */}
                                 <img
                                     src={project.image}
                                     alt={project.title}
                                     className="w-full h-64 object-fill"
                                 />
+
                                 <div className="p-4">
-                                    <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-gray-600 dark:text-gray-300 mt-2">
-                                        {project.description}
+                                    <p className="text-xl text-gray-800 dark:text-gray-100">
+                                        <AnimatedContent keyProp={language}>
+                                            {project.description}
+                                        </AnimatedContent>
                                     </p>
                                 </div>
+                                {/* Efecto hover con botones */}
+                                <motion.div
+                                    className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4"
+                                    initial={{ x: "100%" }}
+                                    animate={{ x: inView ? "0%" : "100%" }}
+                                    transition={{ duration: 1, ease: "easeInOut" }}
+                                >
+                                    <button
+                                        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+                                        onClick={() => handleProjectClick(project)}
+                                    >
+                                        {locales[language].projectScreenshot}
+                                    </button>
+                                    <button
+                                        className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
+                                        onClick={() => window.open(project.link, "_blank")}
+                                    >
+                                        {locales[language].projectRepository}
+                                    </button>
+                                </motion.div>
                             </motion.div>
                         );
                     })}
@@ -210,6 +232,6 @@ export default function Projects() {
 
 
 
-        </div>
+        </div >
     );
 }

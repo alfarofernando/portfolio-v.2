@@ -7,8 +7,11 @@ export default function NavBar({ darkMode, setDarkMode }) {
     const { language, changeLanguage, locales } = useLanguage();
 
     const languageSelector = () => {
-        changeLanguage(language === "es" ? "en" : "es");
+        const newLanguage = language === "es" ? "en" : "es";
+        changeLanguage(newLanguage);
+        document.documentElement.lang = newLanguage; // Actualiza el atributo lang en el HTML
     };
+
 
     return (
         <motion.nav
