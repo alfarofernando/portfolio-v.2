@@ -39,7 +39,8 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="relative w-full min-h-screen">
+    <div className={`relative w-full min-h-screen bg-cover bg-center transition-all duration-500 ${darkMode ? "bg-dark-bg" : "bg-light-bg"
+      }`}>
       {/* Transición del video */}
       <AnimatePresence>
         {isTransitioning && (
@@ -60,6 +61,7 @@ function App() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 1, opacity: 0.5 }}
               transition={{ duration: 1.2 }} // Duración del video
+              onEnded={() => setIsTransitioning(false)} // Termina la transición al final del video
             />
           </motion.div>
         )}

@@ -2,15 +2,35 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-gray-200 dark:bg-gray-900 py-6">
+        <footer className="w-full bg-opacity-50 backdrop-blur-lg  py-6">
             <div className="container mx-auto flex justify-center items-center space-x-8 md:space-x-12 lg:space-x-20">
+
+                {/* CV */}
+                <motion.a
+                    href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-200"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                >
+                    <svg
+                        className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path d="M19 3h-14c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2zm-4 13h-6v-2h6v2zm0-4h-6v-2h6v2zm0-4h-6v-2h6v2z" />
+                    </svg>
+                    <span>Curriculum</span>
+                </motion.a>
+
                 {/* GitHub */}
                 <motion.a
                     href="https://github.com/alfarofernando"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
-                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    whileHover={{ scale: 1.2 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
                     <svg
@@ -31,7 +51,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center justify-center text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-200"
-                    whileHover={{ scale: 1.2, rotate: -360 }}
+                    whileHover={{ scale: 1.2 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
                     <svg
@@ -46,24 +66,7 @@ export default function Footer() {
                     </span>
                 </motion.a>
 
-                {/* CV */}
-                <motion.a
-                    href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center justify-center text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-200"
-                    whileHover={{ scale: 1.2, rotate: 360 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                >
-                    <svg
-                        className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path d="M19 3h-14c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2zm-4 13h-6v-2h6v2zm0-4h-6v-2h6v2zm0-4h-6v-2h6v2z" />
-                    </svg>
-                    <span>Curriculum</span>
-                </motion.a>
+
 
                 {/* LinkedIn */}
                 <motion.a
@@ -71,7 +74,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className=" flex flex-col items-center justify-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200"
-                    whileHover={{ scale: 1.2, rotate: -360 }}
+                    whileHover={{ scale: 1.2 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
                     <svg

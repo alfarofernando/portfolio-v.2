@@ -37,7 +37,7 @@ const AboutMe = () => {
     ];
 
     return (
-        <section id="AboutMe" className="py-12 bg-gray-100 dark:bg-black">
+        <section id="AboutMe" className="py-12">
 
             <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-100 mb-8">
                 <AnimatedContent keyProp={language}>

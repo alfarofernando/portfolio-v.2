@@ -156,7 +156,7 @@ export default function Projects() {
     };
 
     return (
-        <div id="Projects" className="bg-gray-100 dark:bg-black py-16">
+        <div id="Projects" className=" py-16">
             <div className="max-w-4xl mx-auto px-4">
                 <motion.h2
                     className="text-4xl font-bold text-center text-gray-800 dark:text-gray-100 mb-12"
@@ -180,7 +180,7 @@ export default function Projects() {
                             <motion.div
                                 key={index}
                                 ref={ref}
-                                className="relative group bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden cursor-pointer"
+                                className="relative group bg-opacity-80 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer"
                                 initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                                 animate={inView ? { opacity: 1, x: 0 } : { opacity: 0 }}
                                 transition={{
@@ -214,7 +214,7 @@ export default function Projects() {
                     contentLabel="Project Details"
                     appElement={document.getElementById("root")}
                     ariaHideApp={true}
-                    className="relative w-[90%] h-[90%] bg-opacity-85 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-auto transition-all duration-500" // Cambié overflow-hidden por overflow-auto
+                    className="relative w-[90%] h-[90%] bg-opacity-80 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-auto transition-all duration-500" // Cambié overflow-hidden por overflow-auto
                     overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
                 >
                     <motion.div
@@ -225,7 +225,7 @@ export default function Projects() {
                     >
                         {/* Título del proyecto */}
                         <motion.h2
-                            className="text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 text-center bg-gray-100 dark:bg-gray-800 py-2 rounded-md shadow-lg"
+                            className="text-5xl font-bold text-gray-900 bg-opacity-80 dark:text-gray-100 mb-4 text-center bg-gray-100 dark:bg-gray-800 py-2 rounded-md shadow-lg"
                             initial={{ y: -30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.2 }}
@@ -288,7 +288,7 @@ export default function Projects() {
                     contentLabel="Project Screenshots"
                     appElement={document.getElementById("root")}
                     ariaHideApp={true}
-                    className="relative w-[90%] h-[90%] bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden"
+                    className="relative w-[90%] h-[90%] bg-opacity-80 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden"
                     overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
                 >
                     <div className="w-full h-full flex flex-col items-center justify-between">
@@ -304,7 +304,7 @@ export default function Projects() {
                                         <img
                                             src={item.original}
                                             alt="Screenshot"
-                                            className="w-full h-auto object-cover bg-gray-100 dark:bg-black"
+                                            className="w-full h-auto object-cover bg-opacity-80 bg-gray-100 dark:bg-black"
                                         />
                                     </div>
                                 )}

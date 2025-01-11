@@ -18,7 +18,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed top-0 w-full justify-items-center justify-center z-30 bg-gray-900 bg-opacity-80 backdrop-blur-lg shadow-lg"
+            className="fixed top-0 w-full justify-items-center justify-center z-30 bg-gray-800 bg-opacity-50 backdrop-blur-lg shadow-lg"
         >
             <div className="flex mb-1 ">
                 {/* Menú de navegación */}
