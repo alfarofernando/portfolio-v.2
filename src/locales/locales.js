@@ -12,6 +12,8 @@ export const locales = {
     cv: "Ver Curriculum",
     //projects
     projectTitle: "Mis Proyectos",
+    viewDetails: "Ver mas",
+    closeModal: "Cerrar",
     project1Description:
       "Desempeñe el rol de desarrollador web fullstack para la creacion de un sitio de venta y vista asincronica de cursos de programacion. Para este proyecto, utilice el stack React-PHPMySQL",
     project2Description:
@@ -51,8 +53,10 @@ export const locales = {
     cv: "See Curriculum",
     //projects
     projectTitle: "My Projects",
+    viewDetails: "See more",
     projectScreenshot: "To Project",
     projectRepository: "To Repository",
+    closeModal: "Close",
     project1Description:
       "I worked as a full-stack web developer to create a site for selling and asynchronously viewing programming courses. For this project, I used the React-PHP-MySQL stack.",
     project2Description:
