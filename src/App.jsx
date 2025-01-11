@@ -1,33 +1,18 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import darkToLight from './assets/darkToLight.webm';
-import lightToDark from './assets/lightToDark.webm';
+import { motion } from "framer-motion";
 import NavBar from './components/Navbar';
 import Welcome from './components/Welcome';
 import Projects from './components/Projects';
 import AboutMe from './components/AboutMe';
 import Footer from './components/Footer';
+import darkBg from './assets/dark-bg.webp';
+import lightBg from './assets/light-bg.webp';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [currentVideo, setCurrentVideo] = useState(darkToLight); // Video de transición actual
 
   const handleDarkModeToggle = () => {
-    setIsTransitioning(true); // Inicia la transición
-
-    // Cambia el video de transición según el nuevo estado de darkMode
-    setCurrentVideo(darkMode ? darkToLight : lightToDark);
-
-    // Cambia el modo a los 600ms (mitad de la duración del video)
-    setTimeout(() => {
-      setDarkMode(prevDarkMode => !prevDarkMode); // Alterna el valor de darkMode
-    }, 600);
-
-    // Finaliza la transición después de 1200ms (duración exacta del video)
-    setTimeout(() => {
-      setIsTransitioning(false); // Finaliza la transición
-    }, 1200);
+    setDarkMode(prevDarkMode => !prevDarkMode);
   };
 
   useEffect(() => {
@@ -39,50 +24,30 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className={`relative w-full min-h-screen bg-cover bg-center transition-all duration-500 ${darkMode ? "bg-dark-bg" : "bg-light-bg"
-      }`}>
-      {/* Transición del video */}
-      <AnimatePresence>
-        {isTransitioning && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center w-screen h-screen"
-            initial={{ opacity: 0.5 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0.5 }}
-            transition={{ duration: 0.6 }} // Suaviza el desvanecimiento del fondo
-          >
-            <motion.video
-              src={currentVideo}
-              autoPlay
-              playsInline
-              muted
-              className="h-full w-full object-cover"
-              initial={{ scale: 1, opacity: 0.5 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 1, opacity: 0.5 }}
-              transition={{ duration: 1.2 }} // Duración del video
-              onEnded={() => setIsTransitioning(false)} // Termina la transición al final del video
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <motion.div
+      className={`relative w-full min-h-screen bg-cover bg-center transition-all duration-500`}
 
+      style={{
+        backgroundImage: `url(${darkMode ? darkBg : lightBg})`
+      }}
+
+      initial={{ opacity: 0, scale: 1.05 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 1.05 }}
+      transition={{
+        opacity: { duration: 1.2, ease: "easeInOut" },
+        scale: { duration: 1.2, ease: "easeInOut" },
+      }}
+    >
       {/* Contenido principal */}
-      {!isTransitioning && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-0 w-full min-h-screen overflow-hidden"
-        >
-          <NavBar darkMode={darkMode} setDarkMode={handleDarkModeToggle} />
-          <Welcome />
-          <Projects />
-          <AboutMe />
-          <Footer />
-        </motion.div>
-      )}
-    </div>
+      <div className="relative z-0 w-full min-h-screen overflow-hidden">
+        <NavBar darkMode={darkMode} setDarkMode={handleDarkModeToggle} />
+        <Welcome />
+        <Projects />
+        <AboutMe />
+        <Footer />
+      </div>
+    </motion.div>
   );
 }
 
