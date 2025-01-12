@@ -48,10 +48,13 @@ export default function Projects() {
     // Función para abrir un modal
     const openModal = (type, project = null) => {
         if (type === "description") {
-            setSelectedProject(project);
+            setSelectedProject(project); // Guardamos el proyecto en selectedProject
+        } else if (type === "gallery" && project) {
+            setSelectedProject(project); // Aseguramos que el proyecto tiene las capturas de pantalla
         }
         setActiveModal(type);
     };
+
 
     // Función para cerrar el modal
     const closeModal = () => {
@@ -254,7 +257,7 @@ export default function Projects() {
                     contentLabel="Project Details"
                     appElement={document.getElementById("root")}
                     ariaHideApp={true}
-                    className="relative w-[90%] h-[90%] bg-opacity-85 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden transition-all duration-500"
+                    className="relative w-[95%] h-[95%] bg-opacity-85 bg-gray-100 dark:bg-gray-900 p-2 rounded-lg shadow-lg z-50 overflow-hidden transition-all duration-1000"
                     overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
                 >
                     <motion.div
@@ -275,7 +278,7 @@ export default function Projects() {
 
                         {/* Descripción del proyecto */}
                         <motion.p
-                            className="text-3xl text-gray-800 dark:text-gray-300 mb-6 text-center flex-grow"
+                            className="text-3xl text-gray-800 dark:text-gray-300 mb-1 text-center flex-grow overflow-y-auto"
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.3 }}
@@ -284,20 +287,21 @@ export default function Projects() {
                         </motion.p>
 
                         {/* Botones fijos en la parte inferior */}
-                        <div className="absolute bottom-0 left-0 w-full bg-gray-100 dark:bg-gray-800 p-4 flex flex-col space-y-4">
+                        <div className=" w-full bg-none p-1 flex flex-col space-y-2 justify-end items-center">
+
                             {/* Botones de descripción y repositorio */}
-                            <div className="flex justify-between space-x-4">
+                            <div className="w-full flex justify-between space-x-4">
                                 <motion.button
-                                    className="text-2xl bg-blue-600 text-white px-6 py-3 rounded-md w-1/2 hover:bg-blue-700 transition-transform transform hover:scale-105"
+                                    className="text-xl bg-blue-600 text-white px-2 py-1 rounded-md w-1/2 hover:bg-blue-700 transition-transform transform hover:scale-105"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    onClick={() => openModal("gallery")}
+                                    onClick={() => openModal("gallery", selectedProject)}
                                 >
                                     <i className="fas fa-image mr-2"></i> {locales[language].projectScreenshot}
                                 </motion.button>
 
                                 <motion.button
-                                    className="text-2xl bg-green-600 text-white px-6 py-3 rounded-md w-1/2 hover:bg-green-700 transition-transform transform hover:scale-105"
+                                    className="text-xl bg-green-600 text-white px-2 py-1 rounded-md w-1/2 hover:bg-green-700 transition-transform transform hover:scale-105"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => window.open(selectedProject?.link, "_blank")}
@@ -308,7 +312,7 @@ export default function Projects() {
 
                             {/* Botón para cerrar el modal */}
                             <motion.button
-                                className="bg-red-500 text-white px-6 py-3 rounded-md w-full hover:bg-red-600 transition-transform transform hover:scale-105"
+                                className="bg-red-500 text-white px-2 py-1 rounded-md w-full hover:bg-red-600 transition-transform transform hover:scale-105"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={closeModal}
@@ -328,7 +332,7 @@ export default function Projects() {
                     contentLabel="Project Screenshots"
                     appElement={document.getElementById("root")}
                     ariaHideApp={true}
-                    className="relative w-[90%] h-[90%] bg-opacity-80 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden"
+                    className="relative w-[95%] h-[95%] bg-opacity-80 bg-gray-100 dark:bg-gray-900 p-2 rounded-lg shadow-lg z-50 overflow-hidden"
                     overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
                 >
                     <div className="relative w-full h-full flex flex-col">
@@ -345,7 +349,7 @@ export default function Projects() {
                                         <img
                                             src={item.original}
                                             alt="Screenshot"
-                                            className="w-full h-auto object-cover bg-opacity-80 bg-gray-100 dark:bg-black"
+                                            className="w-full h-auto object-fill bg-opacity-80 bg-gray-100 dark:bg-black"
                                         />
                                     </div>
                                 )}
@@ -353,11 +357,11 @@ export default function Projects() {
                         </div>
 
                         {/* Botones fijos en la parte inferior */}
-                        <div className="absolute bottom-0 left-0 w-full bg-gray-100 dark:bg-gray-800 p-4 flex flex-col space-y-4">
+                        <div className=" w-full bg-none p-1 flex flex-col space-y-2 justify-end items-center">
                             {/* Botones de descripción y repositorio */}
-                            <div className="flex justify-between space-x-4">
+                            <div className="w-full flex justify-between space-x-4">
                                 <motion.button
-                                    className="text-2xl bg-blue-600 text-white px-6 py-3 rounded-md w-1/2 hover:bg-blue-700 transition-transform transform hover:scale-105"
+                                    className="text-xl bg-blue-600 text-white px-2 py-1 rounded-md w-1/2 hover:bg-blue-700 transition-transform transform hover:scale-105"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => openModal("description", selectedProject)}
@@ -366,7 +370,7 @@ export default function Projects() {
                                 </motion.button>
 
                                 <motion.button
-                                    className="text-2xl bg-green-600 text-white px-6 py-3 rounded-md w-1/2 hover:bg-green-700 transition-transform transform hover:scale-105"
+                                    className="text-xl bg-green-600 text-white px-2 py-1 rounded-md w-1/2 hover:bg-green-700 transition-transform transform hover:scale-105"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => window.open(selectedProject?.link, "_blank")}
@@ -377,7 +381,7 @@ export default function Projects() {
 
                             {/* Botón para cerrar el modal */}
                             <motion.button
-                                className="bg-red-500 text-white px-6 py-3 rounded-md w-full hover:bg-red-600 transition-transform transform hover:scale-105"
+                                className="bg-red-500 text-white px-2 py-1 rounded-md w-full hover:bg-red-600 transition-transform transform hover:scale-105"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={closeModal}
