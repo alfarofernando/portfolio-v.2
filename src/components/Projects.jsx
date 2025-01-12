@@ -214,7 +214,7 @@ export default function Projects() {
                                         whileHover={{ opacity: 1 }}
                                     >
                                         <motion.button
-                                            className="bg-blue-600 text-white text-xl py-2 rounded-md hover:bg-blue-700 mb-4"  // Añadido margin-bottom para separar los botones
+                                            className="bg-blue-600 text-white text-xl p-2 rounded-md hover:bg-blue-700 mb-4"  // Añadido margin-bottom para separar los botones
                                             whileHover={{ scale: 1.1 }}
                                             onClick={() => openModal("gallery", project)}
                                         >
@@ -222,7 +222,7 @@ export default function Projects() {
                                         </motion.button>
 
                                         <motion.button
-                                            className="bg-green-600 text-white text-xl py-2 rounded-md hover:bg-green-700"
+                                            className="bg-green-600 text-white text-xl p-2 rounded-md hover:bg-green-700"
                                             whileHover={{ scale: 1.1 }}
                                             onClick={() => window.open(project.link, "_blank")}
                                         >

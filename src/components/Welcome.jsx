@@ -50,7 +50,7 @@ export default function Welcome() {
                     <ul className="">
                         <AnimatedContent keyProp={language}>
                             <motion.li whileHover={{ scale: 1.3, rotateY: 360, transition: { duration: 1.5, ease: "easeInOut" } }} className="transition-transform">
-                                <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold p-2 dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full">
+                                <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold p-2   rounded-full">
                                     <span>{locales[language].home1}{" "}</span>
                                     <span className="text-indigo-600 dark:text-indigo-400">Fernando</span> ✌
                                 </h1>
@@ -58,7 +58,7 @@ export default function Welcome() {
                             </motion.li>
                             <motion.li whileHover={{ scale: 1.3, rotateY: -360, transition: { duration: 1.5, ease: "easeInOut" } }} className="transition-transform ">
                                 <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold p-2 pb-2 mb-2">
-                                    <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full px-2">🚀 {locales[language].home2}</span>
+                                    <span className="  rounded-full px-2">🚀 {locales[language].home2}</span>
                                 </h2>
                             </motion.li>
 
