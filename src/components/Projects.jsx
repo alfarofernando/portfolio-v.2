@@ -278,7 +278,7 @@ export default function Projects() {
 
                         {/* Descripción del proyecto */}
                         <motion.p
-                            className="text-3xl text-gray-800 dark:text-gray-300 mb-1 text-center flex-grow overflow-y-auto"
+                            className="text-3xl text-justify text-gray-800 dark:text-gray-300 mb-1 flex-grow overflow-y-auto"
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.3 }}
