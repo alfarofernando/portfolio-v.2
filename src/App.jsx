@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import NavBar from './components/Navbar';
-import Welcome from './components/Welcome';
-import Projects from './components/Projects';
-import AboutMe from './components/AboutMe';
-import Footer from './components/Footer';
 import darkBg from './assets/dark-bg.webp';
 import lightBg from './assets/light-bg.webp';
 
+const NavBar = lazy(() => import('./components/Navbar'));
+const Welcome = lazy(() => import('./components/Welcome'));
+const Projects = lazy(() => import('./components/Projects'));
+const AboutMe = lazy(() => import('./components/AboutMe'));
+const Footer = lazy(() => import('./components/Footer'));
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const handleDarkModeToggle = () => {
     setDarkMode(prevDarkMode => !prevDarkMode);
@@ -22,6 +24,25 @@ function App() {
       document.documentElement.classList.remove('dark');
     }
   }, [darkMode]);
+
+  useEffect(() => {
+    const preloadImages = [darkBg, lightBg];
+    const imagePromises = preloadImages.map((src) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+      });
+    });
+
+    Promise.all(imagePromises).then(() => {
+      setImagesLoaded(true);
+    });
+  }, []);
+
+  if (!imagesLoaded) {
+    return <div className="flex justify-center items-center min-h-screen">Cargando...</div>;
+  }
 
   return (
     <motion.div

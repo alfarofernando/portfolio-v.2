@@ -12,7 +12,9 @@ export const locales = {
     cv: "Ver Curriculum",
     //projects
     projectTitle: "Mis Proyectos",
-    viewDetails: "Ver mas",
+    viewDetails: "Ver Descripcion",
+    projectScreenshot: "Ver Imagenes",
+    projectRepository: "Ver Repositorio",
     closeModal: "Cerrar",
     project1Description:
       "Desempeñe el rol de desarrollador web fullstack para la creacion de un sitio de venta y vista asincronica de cursos de programacion. Para este proyecto, utilice el stack React-PHPMySQL",
@@ -20,8 +22,6 @@ export const locales = {
       "Desempeñe el rol de lider de proyecto teniendo un equipo de 3 desarrolladores a cargo. Me encargue tambien como desarrollador de las tareas tecnicas mas complejas como de la creacion del backend completo y logica del frontend para consumicion de apis. utilizando para este proyecto el stack MongoDB Atlas, Express, React, Node",
     project3Description:
       "Primer portafolio personal realizado en HTML, CSS, BOOTSTRAP , JavaScript",
-    projectScreenshot: "Ver Imagenes",
-    projectRepository: "Ver Repositorio",
     //aboutMe
     aboutMeTitle: "Sobre mi",
     cardOneTitle: "Formación Académica Sólida:",
@@ -53,8 +53,8 @@ export const locales = {
     cv: "See Curriculum",
     //projects
     projectTitle: "My Projects",
-    viewDetails: "See more",
-    projectScreenshot: "To Project",
+    viewDetails: "To Description",
+    projectScreenshot: "To Images",
     projectRepository: "To Repository",
     closeModal: "Close",
     project1Description:

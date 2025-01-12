@@ -10,7 +10,7 @@ export default function Footer() {
                     href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-col items-center justify-center text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-200"
+                    className="flex flex-col items-center justify-center text-yellow-700 dark:text-yellow-300 hover:text-yellow-900 dark:hover:text-yellow-100"
                     whileHover={{ scale: 1.2 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >

@@ -42,24 +42,39 @@ import portfolioOld from "../assets/images/PortfolioOld/portfolioOld.webp";
 import "react-medium-image-zoom/dist/styles.css";
 
 export default function Projects() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
-    const [isGalleryModalOpen, setIsGalleryModalOpen] = useState(false);
+    const [activeModal, setActiveModal] = useState(null);
+
+    // Función para abrir un modal
+    const openModal = (type, project = null) => {
+        if (type === "description") {
+            setSelectedProject(project);
+        }
+        setActiveModal(type);
+    };
+
+    // Función para cerrar el modal
+    const closeModal = () => {
+        setActiveModal(null);
+        setSelectedProject(null);
+    };
 
     const { language, locales } = useLanguage();
 
+
+
     useEffect(() => {
-        // Desactivar el scroll en el body cuando el modal está abierto
-        if (isModalOpen) {
-            document.body.style.overflow = 'hidden'; // Desactiva el scroll
+        // Controlar el scroll del body según el estado de los modales
+        if (activeModal) {
+            document.body.style.overflow = "hidden";
         } else {
-            document.body.style.overflow = 'auto'; // Reactiva el scroll
+            document.body.style.overflow = "auto";
         }
 
         return () => {
-            document.body.style.overflow = 'auto'; // Asegurarse de que el scroll esté habilitado cuando el modal se cierre
+            document.body.style.overflow = "auto"; // Asegurarse de restaurar el scroll
         };
-    }, [isModalOpen]);
+    }, [activeModal]);
 
     const projects = [
         {
@@ -118,23 +133,6 @@ export default function Projects() {
         },
     ];
 
-    const handleProjectClick = (project) => {
-        setSelectedProject(project);
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-        setSelectedProject(null);
-    };
-
-    const openGalleryModal = () => {
-        setIsGalleryModalOpen(true);
-    };
-
-    const closeGalleryModal = () => {
-        setIsGalleryModalOpen(false);
-    };
 
     const modalVariants = {
         hidden: { opacity: 0, scale: 0.8, y: "-50%" },
@@ -169,7 +167,7 @@ export default function Projects() {
                     </AnimatedContent>
                 </motion.h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.map((project, index) => {
                         const { ref, inView } = useInView({
                             triggerOnce: false,
@@ -180,41 +178,83 @@ export default function Projects() {
                             <motion.div
                                 key={index}
                                 ref={ref}
-                                className="relative group bg-opacity-80 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer"
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                                className="relative bg-opacity-80 bg-none dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer"
+                                initial={{ opacity: 0, x: index % 2 === 0 ? -150 : 150 }}
                                 animate={inView ? { opacity: 1, x: 0 } : { opacity: 0 }}
                                 transition={{
-                                    duration: 1,
+                                    duration: 1.2,
                                     ease: "easeInOut",
                                     delay: index * 0.2,
                                 }}
+                                whileHover={{
+                                    scale: 1.1, // Aumenta el tamaño al hacer hover en la imagen y botones
+                                    transition: { duration: 0.3 },
+                                }}
                             >
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-48 object-fill"
-                                />
-                                <button
-                                    className="py-2 bg-blue-600 text-white px-3 text-md md:text-lg lg:text-2xl  hover:bg-blue-700 transition w-full"
-                                    onClick={() => handleProjectClick(project)}
-                                >
-                                    <AnimatedContent keyProp={language}>
-                                        {locales[language].viewDetails}
-                                    </AnimatedContent>
-                                </button>
+                                {/* Contenedor de la imagen y los botones adicionales */}
+                                <motion.div className="relative group">
+                                    {/* Imagen con efecto de blur al hacer hover */}
+                                    <motion.img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-48 object-fill"
+                                        whileHover={{ filter: "blur(4px)", transition: { duration: 0.3 } }}
+                                    />
+
+                                    {/* Botones de galería y repositorio */}
+                                    <motion.div
+                                        className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-gray-800 bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        initial={{ opacity: 0 }}
+                                        animate={{
+                                            opacity: 0,
+                                        }}
+                                        whileHover={{ opacity: 1 }}
+                                    >
+                                        <motion.button
+                                            className="bg-blue-600 text-white text-xl py-2 rounded-md hover:bg-blue-700 mb-4"  // Añadido margin-bottom para separar los botones
+                                            whileHover={{ scale: 1.1 }}
+                                            onClick={() => openModal("gallery", project)}
+                                        >
+                                            {locales[language].projectScreenshot}
+                                        </motion.button>
+
+                                        <motion.button
+                                            className="bg-green-600 text-white text-xl py-2 rounded-md hover:bg-green-700"
+                                            whileHover={{ scale: 1.1 }}
+                                            onClick={() => window.open(project.link, "_blank")}
+                                        >
+                                            {locales[language].projectRepository}
+                                        </motion.button>
+                                    </motion.div>
+
+                                </motion.div>
+
+                                {/* Botón de ver detalles fuera del grupo */}
+                                <div className="">
+                                    <button
+                                        className="py-2 bg-blue-600 text-white px-3 text-md md:text-lg lg:text-2xl hover:bg-blue-700 transition w-full"
+                                        onClick={() => openModal("description", project)}
+                                    >
+                                        <AnimatedContent keyProp={language}>
+                                            {locales[language].viewDetails}
+                                        </AnimatedContent>
+                                    </button>
+                                </div>
                             </motion.div>
+
                         );
                     })}
                 </div>
 
+
                 {/* Modal con descripción y botones */}
                 <Modal
-                    isOpen={isModalOpen}
+                    isOpen={activeModal === "description"}
                     onRequestClose={closeModal}
                     contentLabel="Project Details"
                     appElement={document.getElementById("root")}
                     ariaHideApp={true}
-                    className="relative w-[90%] h-[90%] bg-opacity-80 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-auto transition-all duration-500" // Cambié overflow-hidden por overflow-auto
+                    className="relative w-[90%] h-[90%] bg-opacity-85 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden transition-all duration-500"
                     overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
                 >
                     <motion.div
@@ -225,7 +265,7 @@ export default function Projects() {
                     >
                         {/* Título del proyecto */}
                         <motion.h2
-                            className="text-5xl font-bold text-gray-900 bg-opacity-80 dark:text-gray-100 mb-4 text-center bg-gray-100 dark:bg-gray-800 py-2 rounded-md shadow-lg"
+                            className="text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 text-center"
                             initial={{ y: -30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.2 }}
@@ -235,7 +275,7 @@ export default function Projects() {
 
                         {/* Descripción del proyecto */}
                         <motion.p
-                            className="text-3xl text-gray-800 dark:text-gray-300 mb-6 text-center"
+                            className="text-3xl text-gray-800 dark:text-gray-300 mb-6 text-center flex-grow"
                             initial={{ y: 30, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.3 }}
@@ -243,33 +283,32 @@ export default function Projects() {
                             {selectedProject?.description}
                         </motion.p>
 
-                        {/* Contenedor para los botones de Galería y Repositorio */}
-                        <div className="flex justify-between mb-4">
-                            {/* Botón para abrir la galería */}
-                            <motion.button
-                                className="text-2xl bg-blue-600 text-white px-6 py-3 rounded-md w-[48%] hover:bg-blue-700 transition-transform transform hover:scale-105"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={openGalleryModal} // Abre el modal de la galería
-                            >
-                                <i className="fas fa-image mr-2"></i> {locales[language].projectScreenshot}
-                            </motion.button>
+                        {/* Botones fijos en la parte inferior */}
+                        <div className="absolute bottom-0 left-0 w-full bg-gray-100 dark:bg-gray-800 p-4 flex flex-col space-y-4">
+                            {/* Botones de descripción y repositorio */}
+                            <div className="flex justify-between space-x-4">
+                                <motion.button
+                                    className="text-2xl bg-blue-600 text-white px-6 py-3 rounded-md w-1/2 hover:bg-blue-700 transition-transform transform hover:scale-105"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => openModal("gallery")}
+                                >
+                                    <i className="fas fa-image mr-2"></i> {locales[language].projectScreenshot}
+                                </motion.button>
 
-                            {/* Botón para abrir el repositorio */}
-                            <motion.button
-                                className="text-2xl bg-green-600 text-white px-6 py-3 rounded-md w-[48%] hover:bg-green-700 transition-transform transform hover:scale-105"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={() => window.open(selectedProject?.link, "_blank")}
-                            >
-                                <i className="fas fa-code mr-2"></i> {locales[language].projectRepository}
-                            </motion.button>
-                        </div>
+                                <motion.button
+                                    className="text-2xl bg-green-600 text-white px-6 py-3 rounded-md w-1/2 hover:bg-green-700 transition-transform transform hover:scale-105"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => window.open(selectedProject?.link, "_blank")}
+                                >
+                                    <i className="fas fa-code mr-2"></i> {locales[language].projectRepository}
+                                </motion.button>
+                            </div>
 
-                        {/* Contenedor para el botón de Cerrar */}
-                        <div className="text-2xl flex justify-end mt-auto">
+                            {/* Botón para cerrar el modal */}
                             <motion.button
-                                className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition-transform transform hover:scale-105"
+                                className="bg-red-500 text-white px-6 py-3 rounded-md w-full hover:bg-red-600 transition-transform transform hover:scale-105"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={closeModal}
@@ -281,17 +320,19 @@ export default function Projects() {
                 </Modal>
 
 
+
                 {/* Modal para la galería de imágenes */}
                 <Modal
-                    isOpen={isGalleryModalOpen}
-                    onRequestClose={closeGalleryModal}
+                    isOpen={activeModal === "gallery"}
+                    onRequestClose={closeModal}
                     contentLabel="Project Screenshots"
                     appElement={document.getElementById("root")}
                     ariaHideApp={true}
                     className="relative w-[90%] h-[90%] bg-opacity-80 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg z-50 overflow-hidden"
                     overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
                 >
-                    <div className="w-full h-full flex flex-col items-center justify-between">
+                    <div className="relative w-full h-full flex flex-col">
+                        {/* Galería de imágenes */}
                         <div className="flex-grow w-full overflow-y-auto">
                             <Gallery
                                 items={selectedProject?.screenshots || []}
@@ -310,14 +351,43 @@ export default function Projects() {
                                 )}
                             />
                         </div>
-                        <button
-                            onClick={closeGalleryModal}
-                            className="mt-4 px-6 py-2 w-full bg-red-500 text-white rounded hover:bg-red-600"
-                        >
-                            Close
-                        </button>
+
+                        {/* Botones fijos en la parte inferior */}
+                        <div className="absolute bottom-0 left-0 w-full bg-gray-100 dark:bg-gray-800 p-4 flex flex-col space-y-4">
+                            {/* Botones de descripción y repositorio */}
+                            <div className="flex justify-between space-x-4">
+                                <motion.button
+                                    className="text-2xl bg-blue-600 text-white px-6 py-3 rounded-md w-1/2 hover:bg-blue-700 transition-transform transform hover:scale-105"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => openModal("description", selectedProject)}
+                                >
+                                    <i className="fas fa-info-circle mr-2"></i> {locales[language].viewDetails}
+                                </motion.button>
+
+                                <motion.button
+                                    className="text-2xl bg-green-600 text-white px-6 py-3 rounded-md w-1/2 hover:bg-green-700 transition-transform transform hover:scale-105"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => window.open(selectedProject?.link, "_blank")}
+                                >
+                                    <i className="fas fa-code mr-2"></i> {locales[language].projectRepository}
+                                </motion.button>
+                            </div>
+
+                            {/* Botón para cerrar el modal */}
+                            <motion.button
+                                className="bg-red-500 text-white px-6 py-3 rounded-md w-full hover:bg-red-600 transition-transform transform hover:scale-105"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={closeModal}
+                            >
+                                <i className="fas fa-times mr-2"></i> {locales[language].closeModal}
+                            </motion.button>
+                        </div>
                     </div>
                 </Modal>
+
             </div>
         </div>
     );
