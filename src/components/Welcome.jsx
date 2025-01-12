@@ -4,6 +4,7 @@ import { useLanguage } from "../context/LanguageContext";
 import profile from "../assets/profile.webp";
 import "./Welcome.css";
 import AnimatedContent from "./AnimatedContent";
+import TechCarousel from "./TechCarousel.jsx";
 
 export default function Welcome() {
     const { ref, inView } = useInView({
@@ -17,7 +18,7 @@ export default function Welcome() {
 
             <motion.div
                 id="Welcome"
-                className="h-screen flex flex-col items-center"
+                className="h-screen flex flex-col items-center mb-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ duration: 1 }}
@@ -55,18 +56,24 @@ export default function Welcome() {
                                 </h1>
 
                             </motion.li>
-                            <motion.li whileHover={{ scale: 1.3, rotateY: -360, transition: { duration: 1.5, ease: "easeInOut" } }} className="transition-transform">
-                                <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold p-2">
+                            <motion.li whileHover={{ scale: 1.3, rotateY: -360, transition: { duration: 1.5, ease: "easeInOut" } }} className="transition-transform ">
+                                <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold p-2 pb-2 mb-2">
                                     <span className="dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full px-2">🚀 {locales[language].home2}</span>
                                 </h2>
                             </motion.li>
-                            <motion.li whileHover={{ scale: 1.3, rotateX: 360, transition: { duration: 1.5, ease: "easeInOut" } }} className="transition-transform">
+
+                            {/* CARRUSEL DE TECNOLOGIAS */}
+                            <TechCarousel />
+
+                            {/* BLOQUE INACTIVO */}
+
+                            {/* <motion.li whileHover={{ scale: 1.3, rotateX: 360, transition: { duration: 1.5, ease: "easeInOut" } }} className="transition-transform">
                                 <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl p-2 dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full">
                                     {locales[language].home3} 🏆
                                 </h3>
-                            </motion.li>
+                            </motion.li> */}
                             {/* watsapp */}
-                            <motion.li
+                            {/* <motion.li
                                 whileHover={{ scale: 1.1, transition: { duration: 0.5, ease: "easeInOut" } }}
                                 className="relative group transition-transform"
                             >
@@ -83,7 +90,9 @@ export default function Welcome() {
                                     ></span>
                                     <span className="relative z-10">📱 {locales[language].whatsapp}</span>
                                 </a>
-                            </motion.li>
+                            </motion.li> */}
+
+                            {/* BLOQUE INACTIVO */}
 
                             {/* CV */}
                             <motion.li
@@ -109,9 +118,8 @@ export default function Welcome() {
 
                         </AnimatedContent>
                     </ul>
-
-
                 </motion.div>
+
                 <ul className="flex justify-center space-x-16 md:space-x-0 mt-1 lg:mt-2 2xl:mt-3 ease ">
                     <motion.li whileHover={{ scale: 1.3, rotate: -1800 }} transition={{
                         duration: 1,
