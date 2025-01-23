@@ -61,39 +61,13 @@ export default function Welcome() {
                                     <span className="  rounded-full px-2">🚀 {locales[language].home2}</span>
                                 </h2>
                             </motion.li>
-
-                            {/* CARRUSEL DE TECNOLOGIAS */}
-                            <TechCarousel />
-
-                            {/* BLOQUE INACTIVO */}
-
-                            {/* <motion.li whileHover={{ scale: 1.3, rotateX: 360, transition: { duration: 1.5, ease: "easeInOut" } }} className="transition-transform">
-                                <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl p-2 dark:hover:shadow-md dark:hover:shadow-gray-500 rounded-full">
-                                    {locales[language].home3} 🏆
-                                </h3>
-                            </motion.li> */}
-                            {/* watsapp */}
-                            {/* <motion.li
-                                whileHover={{ scale: 1.1, transition: { duration: 0.5, ease: "easeInOut" } }}
-                                className="relative group transition-transform"
-                            >
-                                <a
-                                    href="https://wa.me/5491152606455?text=¡Hola!%20Estoy%20interesado%20en%20tu%20perfil%20y%20me%20gustaría%20contactarte."
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="relative inline-block rounded-full text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-3 font-semibold 
-                   text-white bg-green-500 shadow-md hover:bg-green-600 transition-all duration-500 overflow-hidden"
-                                >
-                                    <span
-                                        className="absolute inset-0 rounded-full bg-green-700 opacity-0 group-hover:opacity-25 
-                       transition-opacity duration-500"
-                                    ></span>
-                                    <span className="relative z-10">📱 {locales[language].whatsapp}</span>
-                                </a>
-                            </motion.li> */}
-
-                            {/* BLOQUE INACTIVO */}
-
+                        </AnimatedContent>
+                        {/* CARRUSEL DE TECNOLOGIAS */}
+                        {/* El componente que renderiza el carrousel debe estar fuera del animatedcontent ya que
+                        se produce un bug cuando se ejecuta la animacion del carrusel por un lado con la animacion
+                        del cambio de idioma haciendo que todo el bloque de animatedcontent no se renderice */}
+                        <TechCarousel />
+                        <AnimatedContent keyProp={language}>
                             {/* CV */}
                             <motion.li
                                 whileHover={{ scale: 1.1, transition: { duration: 0.5, ease: "easeInOut" } }}
@@ -114,9 +88,9 @@ export default function Welcome() {
                                 </a>
                             </motion.li>
 
-
-
                         </AnimatedContent>
+
+
                     </ul>
                 </motion.div>
 

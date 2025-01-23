@@ -10,6 +10,7 @@ export const LanguageProvider = ({ children }) => {
         setLanguage(lng);
     };
 
+    console.log(language);
 
     return (
         <LanguageContext.Provider value={{ language, changeLanguage, locales }}>
