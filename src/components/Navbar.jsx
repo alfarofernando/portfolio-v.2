@@ -43,7 +43,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 to="Welcome"
                                 smooth={true}
                                 duration={1500}
-                                className="text-white hover:text-indigo-500 cursor-pointer"
+                                className="text-white hover:text-indigo-500 cursor-pointer select-none"
                             >
                                 <AnimatedContent keyProp={language}>
                                     {locales[language].home}
@@ -60,7 +60,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 to="Projects"
                                 smooth={true}
                                 duration={1500}
-                                className="text-white hover:text-indigo-500 cursor-pointer"
+                                className="text-white hover:text-indigo-500 cursor-pointer select-none"
                             >
                                 <AnimatedContent keyProp={language}>
                                     {locales[language].projects}
@@ -77,7 +77,7 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 to="AboutMe"
                                 smooth={true}
                                 duration={1500}
-                                className="text-white hover:text-indigo-500 cursor-pointer"
+                                className="text-white hover:text-indigo-500 cursor-pointer select-none"
                             >
                                 <AnimatedContent keyProp={language}>
                                     {locales[language].aboutMe}
