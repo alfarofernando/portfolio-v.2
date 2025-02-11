@@ -85,7 +85,7 @@ export default function Welcome() {
                             className="relative group transition-transform"
                         >
                             <a
-                                href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
+                                href="/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="relative inline-block rounded-full text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-3 font-semibold text-white bg-blue-500 shadow-md hover:bg-blue-600 transition-all duration-500 overflow-hidden"
