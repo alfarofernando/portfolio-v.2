@@ -39,6 +39,17 @@ import storepc16 from "../assets/images/StorePC/16.webp";
 import storepc17 from "../assets/images/StorePC/17.webp";
 import portfolioOldLogo from "../assets/images/PortfolioOld/portfolioOldLogo.webp";
 import portfolioOld from "../assets/images/PortfolioOld/portfolioOld.webp";
+import noteIt1 from "../assets/images/NoteIt/1.webp";
+import noteIt2 from "../assets/images/NoteIt/2.webp";
+import noteIt3 from "../assets/images/NoteIt/3.webp";
+import noteIt4 from "../assets/images/NoteIt/4.webp";
+import noteIt5 from "../assets/images/NoteIt/5.webp";
+import noteIt6 from "../assets/images/NoteIt/6.webp";
+import noteIt7 from "../assets/images/NoteIt/7.webp";
+import noteIt8 from "../assets/images/NoteIt/8.webp";
+import noteIt9 from "../assets/images/NoteIt/9.webp";
+import noteIt10 from "../assets/images/NoteIt/10.webp";
+import noteItLogo from "../assets/images/NoteIt/noteItLogo.webp";
 import "react-medium-image-zoom/dist/styles.css";
 
 export default function Projects() {
@@ -134,6 +145,24 @@ export default function Projects() {
                 { original: portfolioOld, thumbnail: portfolioOld },
             ],
         },
+        {
+            title: "Note:It",
+            description: locales[language].project4Description,
+            image: noteItLogo,
+            link: "https://noteit-frontend.netlify.app/",
+            screenshots: [
+                { original: noteIt1, thumbnail: noteIt1 },
+                { original: noteIt2, thumbnail: noteIt2 },
+                { original: noteIt3, thumbnail: noteIt3 },
+                { original: noteIt4, thumbnail: noteIt4 },
+                { original: noteIt5, thumbnail: noteIt5 },
+                { original: noteIt6, thumbnail: noteIt6 },
+                { original: noteIt7, thumbnail: noteIt7 },
+                { original: noteIt8, thumbnail: noteIt8 },
+                { original: noteIt9, thumbnail: noteIt9 },
+                { original: noteIt10, thumbnail: noteIt10 },
+            ]
+        }
     ];
 
 
