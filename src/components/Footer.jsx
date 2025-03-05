@@ -1,13 +1,21 @@
+import {useLanguage} from "../context/LanguageContext";
 import { motion } from "framer-motion";
 
 export default function Footer() {
+
+    const {language} = useLanguage;
+    
+   const cv = language === "es"
+  ? "/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
+  : "/portfolio-v.2/cv-AlfaroFernando-Eng.pdf";
+
     return (
         <footer className="w-full bg-opacity-50 backdrop-blur-lg  py-6">
             <div className="container mx-auto flex justify-center items-center space-x-8 md:space-x-12 lg:space-x-20">
 
                 {/* CV */}
                 <motion.a
-                    href="/portfolio-v.2/cv-AlfaroFernando-01-2025.pdf"
+                    href="/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center justify-center text-yellow-700 dark:text-yellow-300 hover:text-yellow-900 dark:hover:text-yellow-100"

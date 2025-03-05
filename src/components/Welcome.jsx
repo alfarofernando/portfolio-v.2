@@ -13,6 +13,10 @@ export default function Welcome() {
     });
     const { language, locales } = useLanguage();
 
+   const cv = language === "es"
+  ? "/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
+  : "/portfolio-v.2/cv-AlfaroFernando-Eng.pdf";
+
     return (
         <>
             <motion.div
@@ -85,7 +89,7 @@ export default function Welcome() {
                             className="relative group transition-transform"
                         >
                             <a
-                                href="/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
+                                href={cv}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="relative inline-block rounded-full text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-3 font-semibold text-white bg-blue-500 shadow-md hover:bg-blue-600 transition-all duration-500 overflow-hidden"
