@@ -34,7 +34,7 @@ const TechCarousel = () => {
         { icon: <img src={ViteIcon} alt="Vite" className="w-16 h-16" />, name: 'Vite' },
     ];
 
-    const [visibleTechs, setVisibleTechs] = useState(techs.slice(0, 7)); // Muestra las primeras 7 tecnologías
+    const [visibleTechs, setVisibleTechs] = useState(techs.slice(0, 9)); // Muestra las primeras 7 tecnologías
     const [index, setIndex] = useState(0); // Índice para las tecnologías
 
     // Función para rotar las tecnologías
@@ -42,7 +42,7 @@ const TechCarousel = () => {
         setVisibleTechs((prevTechs) => {
             const newTechs = [...prevTechs];
             newTechs.shift(); // Elimina la tecnología de la izquierda
-            newTechs.push(techs[(index + 7) % techs.length]); // Agrega la siguiente tecnología desde la derecha
+            newTechs.push(techs[(index + 9) % techs.length]); // Agrega la siguiente tecnología desde la derecha
             return newTechs;
         });
         setIndex((prevIndex) => (prevIndex + 1) % techs.length); // Actualiza el índice
@@ -51,13 +51,13 @@ const TechCarousel = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             rotateTechs();
-        }, 3000); // Intervalo de 3 segundos para la rotación automática
+        }, 1000); // Intervalo de 3 segundos para la rotación automática
 
         return () => clearInterval(intervalId); // Limpiar el intervalo cuando el componente se desmonta
     }, [index]);
 
     return (
-        <div className="relative text-center justify-center text-gray-800 dark:text-gray-200 py-2">
+        <div className="relative text-center justify-center text-gray-800 dark:text-gray-200 py-2 w-full">
             <motion.div
                 className="overflow-hidden w-full"
                 initial={{ opacity: 0 }}
@@ -65,14 +65,14 @@ const TechCarousel = () => {
                 transition={{ duration: 2, delay: 1 }}
             >
                 <motion.div className="flex justify-center items-center gap-4">
-                    {/* Renderizamos las 7 tecnologías visibles */}
+                    {/* Renderizamos las 7 tecnologías visibles aplicando cambios de opacidad al primer y ultimo elemento renderizado*/}
                     {visibleTechs.map((tech, idx) => (
                         <motion.div
                             key={tech.name}
                             className="flex flex-col items-center"
-                            initial={{ opacity: idx === 0 || idx === 6 ? 0 : 1, scale: 0.8, x: 50 }}
+                            initial={{ opacity: idx === 0 || idx === 9 ? 0 : 1, scale: 0.8, x: 50 }}
                             animate={{
-                                opacity: idx === 0 || idx === 6 ? 0 : 1,
+                                opacity: idx === 0 || idx === 9 ? 0 : 1,
                                 scale: 1,
                                 x: 0,
                                 transition: {
@@ -81,9 +81,9 @@ const TechCarousel = () => {
                                 },
                             }}
                             exit={{
-                                opacity: idx === 0 || idx === 6 ? 0 : 1, // Desvanece solo el primer y último elemento (índices 0 y 6)
+                                opacity: idx === 0 || idx === 9 ? 0 : 1, // Desvanece solo el primer y último elemento (índices 0 y 8)
                                 scale: 0.8,
-                                x: idx === 6 ? -50 : 50, // Mover a la izquierda solo el último
+                                x: idx === 9 ? -50 : 50, // Mover a la izquierda solo el último
                                 transition: {
                                     duration: 1, // Duración ajustada
                                     ease: 'easeIn',

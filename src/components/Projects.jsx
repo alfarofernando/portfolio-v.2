@@ -149,7 +149,7 @@ export default function Projects() {
             title: "Note:It",
             description: locales[language].project4Description,
             image: noteItLogo,
-            link: "https://noteit-frontend.netlify.app/",
+            link: "https://github.com/alfarofernando/NoteIt/",
             screenshots: [
                 { original: noteIt1, thumbnail: noteIt1 },
                 { original: noteIt2, thumbnail: noteIt2 },
