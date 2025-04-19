@@ -12,7 +12,7 @@ export const locales = {
     cv: "Ver Curriculum",
     //projects
     projectTitle: "Mis Proyectos",
-    viewDetails: "Ver Descripcion",
+    viewDetails: "Info del Proyecto",
     projectScreenshot: "Ver Imagenes",
     projectRepository: "Ver Repositorio",
     closeModal: "Cerrar",
@@ -57,7 +57,7 @@ export const locales = {
     cv: "See Curriculum",
     //projects
     projectTitle: "My Projects",
-    viewDetails: "To Description",
+    viewDetails: "Project Info",
     projectScreenshot: "To Images",
     projectRepository: "To Repository",
     closeModal: "Close",
