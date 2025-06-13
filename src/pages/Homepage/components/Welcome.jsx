@@ -34,7 +34,7 @@ export default function Welcome() {
                     whileHover={{ rotateZ: 720, rotateX: -720, rotateY: 720, transition: { duration: 3, ease: "easeInOut" } }}
                 >
                     <img
-                        src="/android-chrome-512x512.png"
+                        src="./android-chrome-512x512.png"
                         alt="Fernando"
                         className="w-36 h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-cover border-4 border-gray-300 dark:border-gray-700 shadow-lg dark:hover:shadow-lg dark:hover:shadow-gray-300 rounded-full"
                     />
