@@ -1,7 +1,7 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../../../context/LanguageContext";
 
 import AnimatedContent from "./AnimatedContent";
 

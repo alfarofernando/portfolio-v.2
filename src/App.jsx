@@ -2,11 +2,9 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import darkBg from './assets/dark-bg.webp';
 import lightBg from './assets/light-bg.webp';
+import Router from "./router/Router.jsx";
 
 const NavBar = lazy(() => import('./components/Navbar'));
-const Welcome = lazy(() => import('./components/Welcome'));
-const Projects = lazy(() => import('./components/Projects'));
-const AboutMe = lazy(() => import('./components/AboutMe'));
 const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
@@ -73,9 +71,7 @@ function App() {
       {/* Contenido principal */}
       <div className="relative z-0 w-full min-h-screen overflow-hidden">
         <NavBar darkMode={darkMode} setDarkMode={handleDarkModeToggle} />
-        <Welcome />
-        <Projects />
-        <AboutMe />
+        <Router />
         <Footer />
       </div>
     </motion.div>

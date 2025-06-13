@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../../../context/LanguageContext.jsx";
 import profile from "../assets/profile.webp";
 import "./Welcome.css";
-import AnimatedContent from "./AnimatedContent";
+import AnimatedContent from "../../components/AnimatedContent.jsx";
 import TechCarousel from "./TechCarousel.jsx";
 
 export default function Welcome() {
@@ -13,9 +13,9 @@ export default function Welcome() {
     });
     const { language, locales } = useLanguage();
 
-   const cv = language === "es"
-  ? "/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
-  : "/portfolio-v.2/cv-AlfaroFernando-Eng.pdf";
+    const cv = language === "es"
+        ? "/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
+        : "/portfolio-v.2/cv-AlfaroFernando-Eng.pdf";
 
     return (
         <>
