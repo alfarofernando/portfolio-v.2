@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
 import { useLanguage } from "../context/LanguageContext";
-import AnimatedContent from "./AnimatedContent";
+import AnimatedContent from "../pages/Homepage/components/AnimatedContent";
 
 export default function NavBar({ darkMode, setDarkMode }) {
     const { language, changeLanguage, locales } = useLanguage();

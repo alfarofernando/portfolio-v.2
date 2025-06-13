@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "../../../context/LanguageContext.jsx";
-import profile from "../assets/profile.webp";
-import "./Welcome.css";
-import AnimatedContent from "../../components/AnimatedContent.jsx";
+import profile from "../../../assets/profile.webp";
+import AnimatedContent from "./AnimatedContent.jsx";
 import TechCarousel from "./TechCarousel.jsx";
 
 export default function Welcome() {
