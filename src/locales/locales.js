@@ -27,23 +27,27 @@ export const locales = {
     project4Description:
       "NoteIt es una aplicación web full-stack diseñada para la gestión eficiente de notas. Refleja mi capacidad para conceptualizar, desarrollar y desplegar una solución completa. Permite crear, editar, eliminar, archivar y restaurar notas, así como filtrarlas por categorías. Su interfaz moderna, construida con React y estilizada con Tailwind CSS, ofrece una experiencia fluida y atractiva. El frontend incorpora Redux Toolkit para el manejo de estado, Axios para la comunicación con la API y Framer Motion para animaciones. El backend, desarrollado con Node.js, TypeScript y Express, utiliza MySQL como base de datos, gestionada con Prisma ORM, y bcrypt para la encriptación de contraseñas. Todo el proyecto fue desplegado en Railway (base de datos), Heroku (backend) y Netlify (frontend), demostrando mi capacidad para entregar soluciones completas con eficiencia y enfoque en la calidad del producto.",
     //aboutMe
-    aboutMeTitle: "Sobre mi",
-    cardOneTitle: "Formación Académica Sólida:",
+    aboutMeTitle: "Sobre mí",
+    cardOneTitle: "Formación Universitaria en Programación",
     cardOneDescription:
-      "Técnico Universitario en Programación, especializado en desarrollo de software, estructuras de datos, diseño de sistemas y bases de datos.",
-    cardTwoTitle: "Especialización MERN:",
+      "Graduado como Técnico Universitario en Programación por la UTN, con conocimientos sólidos en estructuras de datos, algoritmos, diseño de sistemas, desarrollo web y bases de datos.",
+    
+    cardTwoTitle: "Especialización Fullstack MERN",
     cardTwoDescription:
-      "Completé un curso de desarrollo Fullstack MERN, adquiriendo experiencia en tecnologías como React, Node.js, Express y MongoDB.",
-    cardThreeTitle: "Experiencia en Liderazgo:",
+      "Formado como desarrollador Fullstack en el stack MERN (MongoDB, Express, React, Node.js), con experiencia práctica en la construcción de aplicaciones web completas y escalables.",
+    
+    cardThreeTitle: "Liderazgo Técnico y Gestión de Equipos",
     cardThreeDescription:
-      " Líder de proyecto en StorePC, gestionando un equipo de tres desarrolladores y asumiendo la implementación técnica de backend y frontend utilizando el stack MERN.",
-    cardFourTitle: "Competencia Multilingüe:",
+      "Coordiné equipos de desarrollo en proyectos reales, liderando la arquitectura técnica e implementación de soluciones web integrales, con enfoque en calidad, rendimiento y escalabilidad.",
+    
+    cardFourTitle: "Comunicación y Colaboración Global",
     cardFourDescription:
-      "Dominio avanzado del inglés, facilitando la colaboración en proyectos internacionales y la documentación técnica.",
-    cardFiveTitle: "Stack Tecnológico Diversificado:",
+      "Dominio avanzado del idioma inglés, permitiendo el trabajo fluido en equipos internacionales, la comprensión de documentación técnica y la comunicación efectiva en entornos remotos.",
+    
+    cardFiveTitle: "Stack Tecnológico Versátil",
     cardFiveDescription:
-      "Experto en tecnologías frontend (React, Tailwind, Bootstrap), backend (Node.js, Express, PHP), bases de datos (MongoDB, MySQL) y herramientas de control de versiones como Git y GitHub.",
-  },
+      "Especialista en tecnologías frontend modernas (React, TypeScript, Tailwind CSS), con sólida experiencia en backend (Node.js, Express, PHP), bases de datos SQL/NoSQL y herramientas DevOps.",
+    },
   en: {
     //navbar
     home: "Home",
@@ -73,20 +77,19 @@ export const locales = {
       "NoteIt is a full-stack web application designed for efficient note management. It showcases my ability to conceptualize, develop, and deploy a complete solution. The app allows users to create, edit, delete, archive, and restore notes, as well as filter them by category. Its modern interface, built with React and styled using Tailwind CSS, provides a smooth and engaging user experience.The frontend leverages Redux Toolkit for state management, Axios for API communication, and Framer Motion for animations. The backend, developed with Node.js, TypeScript, and Express, uses MySQL as the database, managed with Prisma ORM, and bcrypt for password encryption. The entire project was deployed using Railway (database), Heroku (backend), and Netlify (frontend), demonstrating my ability to deliver complete solutions with efficiency and a strong focus on product quality.",
     //aboutMe
     aboutMeTitle: "About Me",
-    cardOneTitle: "Solid Academic Background:",
+    cardOneTitle: "Strong Academic Background:",
     cardOneDescription:
-      "University Technician in Programming, specialized in software development, data structures, systems design, and databases.",
-    cardTwoTitle: "MERN Specialization:",
+      "University Technician in Programming with a focus on software engineering, data structures, systems design, and relational and non-relational databases.",
+    cardTwoTitle: "Fullstack MERN Specialization:",
     cardTwoDescription:
-      "Completed a Fullstack MERN development course, gaining experience in technologies such as React, Node.js, Express, and MongoDB.",
-    cardThreeTitle: "Leadership Experience:",
+      "Completed an intensive Fullstack MERN course, acquiring hands-on experience with React, Node.js, Express, and MongoDB through the development of real-world projects.",
+    cardThreeTitle: "Proven Leadership in Development:",
     cardThreeDescription:
-      "Project leader at StorePC, managing a team of three developers and handling the technical implementation of backend and frontend using the MERN stack.",
-    cardFourTitle: "Multilingual Proficiency:",
+      "Led a fullstack eCommerce project at StorePC, coordinating a team of three developers and overseeing both frontend and backend architecture using the MERN stack.",
+    cardFourTitle: "Advanced English Communication:",
     cardFourDescription:
-      "Advanced English proficiency, facilitating collaboration on international projects and technical documentation.",
-    cardFiveTitle: "Diverse Tech Stack:",
+      "Fluent in English, enabling effective participation in remote teams, technical discussions, and the creation of high-quality documentation for global audiences.",
+    cardFiveTitle: "Versatile Technological Skill Set:",
     cardFiveDescription:
-      "Expert in frontend technologies (React, Tailwind, Bootstrap), backend (Node.js, Express, PHP), databases (MongoDB, MySQL), and version control tools like Git and GitHub.",
-  },
+      "Skilled in frontend (React, TypeScript, Tailwind, Bootstrap), backend (Node.js, Express, PHP), databases (MongoDB, MySQL), and modern development tools like Git, GitHub, Vite, and CI/CD pipelines.", },
 };
