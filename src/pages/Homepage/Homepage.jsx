@@ -1,5 +1,5 @@
 import Welcome from "./components/Welcome";
-import Projects from "../Projects/Projects";
+import Projects from "./components/Projects";
 import AboutMe from "./components/AboutMe";
 
 const HomePage = () => {
