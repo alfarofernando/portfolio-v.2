@@ -47,6 +47,21 @@ import noteIt10 from "../../../assets/images/NoteIt/10.webp";
 
 export const getProjects = (locales, language) => [
     {
+        title: "Portafolio V-1",
+        description: locales[language].project3Description,
+        image: portfolioOldLogo,
+        link: "https://github.com/alfarofernando/portfolio-v.1",
+        technologies: [
+            "HTML",
+            "CSS",
+            "Bootstrap",
+            "JavaScript"
+        ],
+        screenshots: [
+            { original: portfolioOld, thumbnail: portfolioOld }
+        ]
+    },
+    {
         title: "AlfaTeam",
         description: locales[language].project1Description,
         image: alfateamLogo,
@@ -111,21 +126,7 @@ export const getProjects = (locales, language) => [
             { original: storepc17, thumbnail: storepc17 }
         ]
     },
-    {
-        title: "Portafolio V-1",
-        description: locales[language].project3Description,
-        image: portfolioOldLogo,
-        link: "https://github.com/alfarofernando/portfolio-v.1",
-        technologies: [
-            "HTML",
-            "CSS",
-            "Bootstrap",
-            "JavaScript"
-        ],
-        screenshots: [
-            { original: portfolioOld, thumbnail: portfolioOld }
-        ]
-    },
+
     {
         title: "Note:It",
         description: locales[language].project4Description,

@@ -1,15 +1,15 @@
-// src/components/Projects/Projects.tsx  (o la ruta donde esté)
-
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import AnimatedContent from "./AnimatedContent";
 import { useLanguage } from "../../../context/LanguageContext";
-import { getProjects } from "../../Projects/Components/Data"; // ← NUEVO IMPORT
+import { getProjects } from "../../Projects/Components/Data";
+import { slugify } from "../../../utils/slugify";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Projects() {
     const { language, locales } = useLanguage();
-
-    // Obtenemos el array de proyectos según el idioma actual
+    const navigate = useNavigate();
     const projects = getProjects(locales, language); // ← NUEVA LÍNEA
 
     return (
@@ -71,9 +71,9 @@ export default function Projects() {
                                         animate={{ opacity: 0 }}
                                         whileHover={{ opacity: 1 }}
                                     >
-                                        <h3 className="text-white text-2xl font-bold mb-4 text-center">
+                                        <h2 className="text-white text-2xl font-bold mb-4 text-center">
                                             {project.title}
-                                        </h3>
+                                        </h2>
 
                                         <div className="flex flex-wrap justify-center gap-2 px-4">
                                             {project.technologies.map((tech, i) => (
@@ -91,7 +91,12 @@ export default function Projects() {
                                 {/* Botón Ver detalles */}
                                 <button
                                     className="py-2 bg-blue-600 text-white w-full text-md md:text-lg lg:text-2xl hover:bg-blue-700 transition"
-                                    onClick={() => openModal("description", project)}
+                                    onClick={() => {
+                                        navigate(`/portfolio-v.2/projects/${slugify(project.title)}`, {
+                                            state: { project },
+                                        });
+                                        window.scrollTo({ top: 0, behavior: "smooth" });
+                                    }}
                                 >
                                     <AnimatedContent keyProp={language}>
                                         {locales[language].viewDetails}
