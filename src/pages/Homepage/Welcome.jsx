@@ -90,10 +90,10 @@ export default function Welcome() {
                                 href={cv}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="relative inline-block rounded-full text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-3 font-semibold text-white bg-blue-500 shadow-md hover:bg-blue-600 transition-all duration-500 overflow-hidden"
+                                className="relative inline-block rounded-full text-lg md:text-xl lg:text-2xl xl:text-3xl px-6 py-3 font-semibold text-white bg-blue-800 shadow-md hover:bg-blue-900 transition-all duration-500 overflow-hidden"
                             >
                                 <span
-                                    className="absolute inset-0 rounded-full bg-blue-700 opacity-0 group-hover:opacity-25 transition-opacity duration-500"
+                                    className="absolute inset-0 rounded-full bg-blue-800 opacity-0 group-hover:opacity-25 transition-opacity duration-500"
                                 ></span>
                                 <span className="relative z-10"> {locales[language].cv} 📄</span>
                             </a>

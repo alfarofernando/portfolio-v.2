@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import darkBg from './assets/dark-bg.webp';
 import lightBg from './assets/light-bg.webp';
 import Router from "./router/Router.jsx";
+import SubFooter from "./components/SubFooter.jsx";
 
 const NavBar = lazy(() => import('./components/Navbar'));
 const Footer = lazy(() => import('./components/Footer'));
