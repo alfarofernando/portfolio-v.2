@@ -1,8 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import { useLanguage } from "../../../context/LanguageContext";
-
-import AnimatedContent from "./AnimatedContent";
+import { useLanguage } from "../../context/LanguageContext";
+import AnimatedContent from "../Homepage/components/AnimatedContent";
 
 const AboutMe = () => {
     const { language, locales } = useLanguage();

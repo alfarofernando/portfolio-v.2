@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import AnimatedContent from "./AnimatedContent";
-import { useLanguage } from "../../../context/LanguageContext";
-import { getProjects } from "../../Projects/Components/Data";
-import { slugify } from "../../../utils/slugify";
+import AnimatedContent from "../Homepage/components/AnimatedContent";
+import { useLanguage } from "../../context/LanguageContext";
+import { getProjects } from "./components/Data";
+import { slugify } from "../../utils/slugify";
 import { useNavigate } from "react-router-dom";
 
 

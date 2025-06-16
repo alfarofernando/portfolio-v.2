@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useLanguage } from "../../../context/LanguageContext.jsx";
-import AnimatedContent from "./AnimatedContent.jsx";
-import TechCarousel from "./TechCarousel.jsx";
+import { useLanguage } from "../../context/LanguageContext.jsx";
+import AnimatedContent from "./components/AnimatedContent.jsx";
+import TechCarousel from "./components/TechCarousel.jsx";
 
 export default function Welcome() {
     const { ref, inView } = useInView({
@@ -62,7 +62,7 @@ export default function Welcome() {
                                 whileHover={{ scale: 1.3, rotateY: -360, transition: { duration: 1.5, ease: "easeInOut" } }}
                                 className="transition-transform"
                             >
-                                <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold p-2 pb-2 mb-2">
+                                <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold p-2 pb-2 mb-4">
                                     <span className="rounded-full px-2">🚀 {locales[language].home2}</span>
                                 </h2>
                             </motion.li>
@@ -71,7 +71,7 @@ export default function Welcome() {
                 </motion.div>
 
                 {/* Aislar el TechCarousel */}
-                <div className="w-full flex justify-center mt-4">
+                <div className="w-full flex justify-center my-4">
                     <TechCarousel />
                 </div>
 

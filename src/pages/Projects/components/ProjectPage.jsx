@@ -1,8 +1,8 @@
 // src/pages/Projects/ProjectPage.jsx
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { useLanguage } from "../../context/LanguageContext";
-import { getProjects } from "./Components/Data";
-import { slugify } from "../../utils/slugify";
+import { useLanguage } from "../../../context/LanguageContext";
+import { getProjects } from "./Data";
+import { slugify } from "../../../utils/slugify";
 import { motion } from "framer-motion";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";

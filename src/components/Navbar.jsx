@@ -1,17 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import AnimatedContent from "../pages/Homepage/components/AnimatedContent";
 
 export default function NavBar({ darkMode, setDarkMode }) {
     const { language, changeLanguage, locales } = useLanguage();
+    const navigate = useNavigate();
 
     const languageSelector = () => {
         const newLanguage = language === "es" ? "en" : "es";
         changeLanguage(newLanguage);
-        document.documentElement.lang = newLanguage; // Actualiza el atributo lang en el HTML
+        document.documentElement.lang = newLanguage;
     };
-
 
     return (
         <motion.nav
@@ -20,11 +20,9 @@ export default function NavBar({ darkMode, setDarkMode }) {
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className="fixed top-0 w-full justify-items-center justify-center z-30 bg-gray-800 bg-opacity-50 backdrop-blur-lg shadow-lg"
         >
-            <div className="flex mb-1 ">
-                {/* Menú de navegación */}
+            <div className="flex mb-1">
                 <ul className="flex space-x-3 md:space-x-6 lg:space-x-9 xl:space-x-12 py-1 text-sm md:text-lg lg:text-2xl xl:text-4xl">
                     <li>
-                        {/* Botón de Dark Mode */}
                         <motion.button
                             whileHover={{ scale: 1.2 }}
                             whileTap={{ scale: 0.9 }}
@@ -34,64 +32,53 @@ export default function NavBar({ darkMode, setDarkMode }) {
                             {darkMode ? "🌞 " : "🌙 "}
                         </motion.button>
                     </li>
+
                     <li>
-                        <motion.div
-                            whileHover={{ scale: 1.2 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <Link
-                                to="Welcome"
-                                smooth={true}
-                                duration={1500}
+                        <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+                            <button
+                                onClick={() => navigate("/portfolio-v.2/Home")}
                                 className="text-white hover:text-indigo-500 cursor-pointer select-none"
                             >
                                 <AnimatedContent keyProp={language}>
                                     {locales[language].home}
                                 </AnimatedContent>
-                            </Link>
+                            </button>
                         </motion.div>
                     </li>
+
                     <li>
-                        <motion.div
-                            whileHover={{ scale: 1.2 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <Link
-                                to="Projects"
-                                smooth={true}
-                                duration={1500}
+                        <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+                            <button
+                                onClick={() => navigate("/portfolio-v.2/Projects")}
                                 className="text-white hover:text-indigo-500 cursor-pointer select-none"
                             >
                                 <AnimatedContent keyProp={language}>
                                     {locales[language].projects}
                                 </AnimatedContent>
-                            </Link>
+                            </button>
                         </motion.div>
                     </li>
+
                     <li>
-                        <motion.div
-                            whileHover={{ scale: 1.2 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <Link
-                                to="AboutMe"
-                                smooth={true}
-                                duration={1500}
+                        <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.3 }}>
+                            <button
+                                onClick={() => navigate("/portfolio-v.2/AboutMe")}
                                 className="text-white hover:text-indigo-500 cursor-pointer select-none"
                             >
                                 <AnimatedContent keyProp={language}>
                                     {locales[language].aboutMe}
                                 </AnimatedContent>
-                            </Link>
+                            </button>
                         </motion.div>
                     </li>
+
                     <li>
                         <motion.button
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={languageSelector}
-                            className={`rounded-full cursor-pointer px-1 md:px-2 lg:px-3 xl:px-4  text-white font-bold shadow-md transition duration-300 
-      ${language === 'es' ? 'hover:bg-yellow-600 shadow-red-500' : 'hover:bg-blue-600 shadow-red-500'}`}
+                            className={`rounded-full cursor-pointer px-1 md:px-2 lg:px-3 xl:px-4 text-white font-bold shadow-md transition duration-300 
+                                ${language === 'es' ? 'hover:bg-yellow-600 shadow-red-500' : 'hover:bg-blue-600 shadow-red-500'}`}
                         >
                             <AnimatePresence mode="wait">
                                 {language === 'es' ? (
@@ -121,10 +108,9 @@ export default function NavBar({ darkMode, setDarkMode }) {
                                 )}
                             </AnimatePresence>
                         </motion.button>
-
                     </li>
                 </ul>
             </div>
-        </motion.nav >
+        </motion.nav>
     );
 }

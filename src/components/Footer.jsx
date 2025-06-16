@@ -1,16 +1,16 @@
-import {useLanguage} from "../context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 import { motion } from "framer-motion";
 
 export default function Footer() {
 
-    const {language} = useLanguage;
-    
-   const cv = language === "es"
-  ? "/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
-  : "/portfolio-v.2/cv-AlfaroFernando-Eng.pdf";
+    const { language } = useLanguage;
+
+    const cv = language === "es"
+        ? "/portfolio-v.2/cv-AlfaroFernando-Esp.pdf"
+        : "/portfolio-v.2/cv-AlfaroFernando-Eng.pdf";
 
     return (
-        <footer className="w-full bg-opacity-50 backdrop-blur-lg  py-6">
+        <footer className="w-full bg-opacity-50 backdrop-blur-lg  py-3">
             <div className="container mx-auto flex justify-center items-center space-x-8 md:space-x-12 lg:space-x-20">
 
                 {/* CV */}
