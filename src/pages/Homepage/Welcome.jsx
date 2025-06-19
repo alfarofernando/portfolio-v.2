@@ -82,7 +82,7 @@ export default function Welcome() {
                     transition={{ duration: 1, delay: 1 }}
                 >
                     <AnimatedContent keyProp={language}>
-                        <motion.li
+                        <motion.div
                             whileHover={{ scale: 1.1, transition: { duration: 0.5, ease: "easeInOut" } }}
                             className="relative group transition-transform"
                         >
@@ -97,7 +97,7 @@ export default function Welcome() {
                                 ></span>
                                 <span className="relative z-10"> {locales[language].cv} 📄</span>
                             </a>
-                        </motion.li>
+                        </motion.div>
                     </AnimatedContent>
                 </motion.div>
 
