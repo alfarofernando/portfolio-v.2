@@ -19,7 +19,7 @@ export default function Welcome() {
         <>
             <motion.div
                 id="Welcome"
-                className="h-screen flex flex-col items-center mb-4"
+                className="h-screen flex flex-col items-center mb-20 md:mb-16 lg:mb-20 xl:mb-24"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: inView ? 1 : 0 }}
                 transition={{ duration: 1 }}
