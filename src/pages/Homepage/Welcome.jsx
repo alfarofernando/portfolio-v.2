@@ -47,9 +47,9 @@ export default function Welcome() {
                     animate={{ y: inView ? 0 : 50, opacity: inView ? 1 : 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
-                    <ul>
+                    <div className="flex flex-col items-center space-y-4">
                         <AnimatedContent keyProp={language}>
-                            <motion.li
+                            <motion.div
                                 whileHover={{ scale: 1.3, rotateY: 360, transition: { duration: 1.5, ease: "easeInOut" } }}
                                 className="transition-transform"
                             >
@@ -57,17 +57,17 @@ export default function Welcome() {
                                     <span>{locales[language].home1}{" "}</span>
                                     <span className="text-indigo-600 dark:text-indigo-400">Fernando</span> ✌
                                 </h1>
-                            </motion.li>
-                            <motion.li
+                            </motion.div>
+                            <motion.div
                                 whileHover={{ scale: 1.3, rotateY: -360, transition: { duration: 1.5, ease: "easeInOut" } }}
                                 className="transition-transform"
                             >
                                 <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold p-2 pb-2 mb-4">
                                     <span className="rounded-full px-2">🚀 {locales[language].home2}</span>
                                 </h2>
-                            </motion.li>
+                            </motion.div>
                         </AnimatedContent>
-                    </ul>
+                    </div>
                 </motion.div>
 
                 {/* Aislar el TechCarousel */}
@@ -111,6 +111,7 @@ export default function Welcome() {
                             href="https://github.com/alfarofernando"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="Enlace a perfil de GitHub"
                             className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
                         >
                             <svg
@@ -132,6 +133,7 @@ export default function Welcome() {
                             href="https://www.linkedin.com/in/fernando-alfaro-132973246/"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="Enlace a perfil de LinkedIn"
                             className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
                         >
                             <svg

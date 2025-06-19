@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import darkBg from './assets/dark-bg.webp';
-import lightBg from './assets/light-bg.webp';
+import darkBg from './assets/dark-bg.jpg';
+import lightBg from './assets/light-bg.jpg';
 import Router from "./router/Router.jsx";
 import SubFooter from "./components/SubFooter.jsx";
 
