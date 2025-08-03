@@ -44,6 +44,15 @@ import noteIt7 from "../../../assets/images/NoteIt/7.webp";
 import noteIt8 from "../../../assets/images/NoteIt/8.webp";
 import noteIt9 from "../../../assets/images/NoteIt/9.webp";
 import noteIt10 from "../../../assets/images/NoteIt/10.webp";
+import sgulogo from "../../../assets/images/PortalSGU/sguLogo.png";
+import sgu1 from "../../../assets/images/PortalSGU/sgu1.png";
+import sgu2 from "../../../assets/images/PortalSGU/sgu2.png";
+import sgu3 from "../../../assets/images/PortalSGU/sgu3.png";
+import sgu4 from "../../../assets/images/PortalSGU/sgu4.png";
+import sgu5 from "../../../assets/images/PortalSGU/sgu5.png";
+import sgu6 from "../../../assets/images/PortalSGU/sgu6.png";
+import sgu7 from "../../../assets/images/PortalSGU/sgu7.png";
+
 
 export const getProjects = (locales, language) => [
     {
@@ -153,6 +162,31 @@ export const getProjects = (locales, language) => [
             { original: noteIt8, thumbnail: noteIt8 },
             { original: noteIt9, thumbnail: noteIt9 },
             { original: noteIt10, thumbnail: noteIt10 }
+        ]
+    },
+    {
+        title: "Portal SGU",
+        description: locales[language].project5Description,
+        image: sgulogo,
+        link: "https://www.portalsgu.netlify.app/",
+        technologies: [
+            "React 19",
+            "Next.js 15",
+            "TypeScript",
+            "Tailwind CSS",
+            "Prisma ORM",
+            "Swagger",
+            "MySQL2",
+            "Next-Auth con JWT"
+        ],
+        screenshots: [
+            { original: sgu1, thumbnail: sgu1 },
+            { original: sgu2, thumbnail: sgu2 },
+            { original: sgu3, thumbnail: sgu3 },
+            { original: sgu4, thumbnail: sgu4 },
+            { original: sgu5, thumbnail: sgu5 },
+            { original: sgu6, thumbnail: sgu6 },
+            { original: sgu7, thumbnail: sgu7 },
         ]
     }
 ];

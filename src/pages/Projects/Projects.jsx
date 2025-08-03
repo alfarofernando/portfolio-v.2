@@ -57,7 +57,7 @@ export default function Projects() {
                                     <motion.img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-48 object-fill"
+                                        className="w-full h-48 object-fit"
                                         whileHover={{
                                             filter: "blur(4px)",
                                             transition: { duration: 0.3 },
